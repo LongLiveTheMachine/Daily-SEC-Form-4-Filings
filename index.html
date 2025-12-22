@@ -1,21 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Your Service Name</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InsiderIQ Pro - SEC Insider Filings</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #f4f7f6; color: #333; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); width: 100%; max-width: 400px; text-align: center; }
+        h1 { color: #1a73e8; margin-bottom: 0.5rem; font-size: 1.5rem; }
+        p { color: #666; font-size: 0.9rem; margin-bottom: 1.5rem; line-height: 1.4; }
+        .trial-badge { background: #e8f0fe; color: #1967d2; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; display: inline-block; margin-bottom: 1rem; }
+        form { display: flex; flex-direction: column; gap: 1rem; }
+        input { padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; }
+        button { background: #1a73e8; color: white; border: none; padding: 14px; border-radius: 6px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+        button:hover { background: #1557b0; }
+        button:disabled { background: #ccc; cursor: not-allowed; }
+        #message { margin-top: 1rem; font-size: 0.85rem; padding: 10px; border-radius: 4px; display: none; }
+        .success { background: #e6fffa; color: #234e52; display: block !important; }
+        .error { background: #fff5f5; color: #c53030; display: block !important; }
+    </style>
 </head>
 <body>
-  <main>
-    <h1>Your Service Name</h1>
-    <p>A short, clear description of what your service does.</p>
 
-    <button id="runBtn">Run Service</button>
+<div class="card">
+    <h1>InsiderIQ Pro</h1>
+    <div class="trial-badge">Free 14-Day Trial</div>
+    <p>Join our distribution list to receive daily SEC Form 3 & 4 insider transaction reports directly to your inbox.</p>
+    
+    <form id="signupForm">
+        <input type="text" id="username" name="username" placeholder="Full Name" required>
+        <input type="email" id="email" name="email" placeholder="Email Address" required>
+        <button type="submit" id="submitBtn">Start Free Trial</button>
+    </form>
 
-    <p id="status"></p>
-  </main>
+    <div id="message"></div>
+</div>
 
-  <script src="script.js"></script>
+<script>
+    const scriptURL = 'YOUR_WEB_APP_URL_HERE';
+    const form = document.getElementById('signupForm');
+    const btn = document.getElementById('submitBtn');
+    const msg = document.getElementById('message');
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        btn.disabled = true;
+        btn.innerText = "Processing...";
+        msg.className = '';
+        msg.innerText = '';
+
+        const data = {
+            username: document.getElementById('username').value,
+            email: document.getElementById('email').value
+        };
+
+        fetch(scriptURL, { 
+            method: 'POST', 
+            mode: 'no-cors', // Necessary for Apps Script
+            body: JSON.stringify(data)
+        })
+        .then(() => {
+            msg.innerText = "Success! Check your email for your welcome kit.";
+            msg.className = 'success';
+            form.reset();
+            btn.disabled = false;
+            btn.innerText = "Start Free Trial";
+        })
+        .catch(error => {
+            msg.innerText = "Something went wrong. Please try again.";
+            msg.className = 'error';
+            btn.disabled = false;
+            btn.innerText = "Start Free Trial";
+        });
+    });
+</script>
+
 </body>
 </html>
