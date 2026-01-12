@@ -3,38 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InsiderIQ Pro - SEC Insider Filings</title>
+    <title>InsiderIQ Pro | SEC Form 3 & 4 Insider Trading Reports</title>
+    <meta name="description" content="Get daily SEC Form 3 & 4 insider transaction reports delivered to your inbox. Track executive trades with InsiderIQ Pro's easy-to-use CSV data.">
+    <meta name="keywords" content="SEC filings, insider trading reports, Form 4, Form 3, stock market data, financial intelligence">
+    
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #f4f7f6; color: #333; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
-        .card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); width: 100%; max-width: 400px; text-align: center; }
-        h1 { color: #1a73e8; margin-bottom: 0.5rem; font-size: 1.5rem; }
-        p { color: #666; font-size: 0.9rem; margin-bottom: 1.5rem; line-height: 1.4; }
-        .trial-badge { background: #e8f0fe; color: #1967d2; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; display: inline-block; margin-bottom: 1rem; }
-        form { display: flex; flex-direction: column; gap: 1rem; }
-        input { padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; }
-        button { background: #1a73e8; color: white; border: none; padding: 14px; border-radius: 6px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: background 0.2s; }
-        button:hover { background: #1557b0; }
-        button:disabled { background: #ccc; cursor: not-allowed; }
-        #message { margin-top: 1rem; font-size: 0.85rem; padding: 10px; border-radius: 4px; display: none; }
-        .success { background: #e6fffa; color: #234e52; display: block !important; }
-        .error { background: #fff5f5; color: #c53030; display: block !important; }
+        :root {
+            --primary: #1a73e8;
+            --primary-dark: #1557b0;
+            --secondary: #00d2ff;
+            --text-main: #2d3748;
+            --text-light: #718096;
+            --bg-light: #f8fafc;
+        }
+
+        body { 
+            font-family: 'Inter', -apple-system, sans-serif; 
+            background-color: var(--bg-light); 
+            color: var(--text-main); 
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        header {
+            background: linear-gradient(135deg, #1a73e8 0%, #0052cc 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+        .hero-title { font-size: 3rem; margin-bottom: 10px; font-weight: 800; letter-spacing: -1px; }
+        .hero-subtitle { font-size: 1.25rem; opacity: 0.9; margin-bottom: 30px; }
+
+        /* Signup Card */
+        .card { 
+            background: white; 
+            padding: 40px; 
+            border-radius: 20px; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
+            max-width: 450px; 
+            margin: -100px auto 60px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .trial-badge { 
+            background: #ffefc1; color: #975a16; 
+            padding: 6px 16px; border-radius: 50px; 
+            font-size: 0.85rem; font-weight: 800; 
+            display: inline-block; margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        /* Form Styling */
+        form { display: flex; flex-direction: column; gap: 15px; }
+        input { 
+            padding: 15px; border: 2px solid #edf2f7; 
+            border-radius: 10px; font-size: 1rem; transition: 0.3s;
+        }
+        input:focus { border-color: var(--primary); outline: none; }
+        
+        button { 
+            background: var(--primary); color: white; border: none; 
+            padding: 16px; border-radius: 10px; font-size: 1.1rem; 
+            font-weight: 700; cursor: pointer; 
+            box-shadow: 0 4px 14px rgba(26, 115, 232, 0.4);
+            transition: all 0.3s ease;
+        }
+        button:hover { transform: translateY(-2px); background: var(--primary-dark); }
+
+        /* Blog/Insights Section */
+        .section-title { text-align: center; font-size: 2rem; margin-top: 40px; color: #1a202c; }
+        
+        .blog-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 30px; margin-top: 40px; padding-bottom: 80px;
+        }
+
+        .post-card { 
+            background: white; border-radius: 15px; overflow: hidden; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: 0.3s;
+        }
+        .post-card:hover { transform: translateY(-5px); }
+        .post-content { padding: 20px; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+        #message { margin-top: 1rem; padding: 15px; border-radius: 8px; display: none; text-align: center; }
+        .success { background: #c6f6d5; color: #22543d; display: block !important; }
     </style>
 </head>
 <body>
 
-<div class="card">
-    <h1>InsiderIQ Pro</h1>
-    <div class="trial-badge">Free 14-Day Trial</div>
-    <p>Join our distribution list to receive daily SEC Form 3 & 4 insider transaction reports in an easy to use csv file.</p>
-    
-    <form id="signupForm">
-        <input type="text" id="username" name="username" placeholder="Username" required>
-        <input type="email" id="email" name="email" placeholder="Email Address" required>
-        <button type="submit" id="submitBtn">Start Free Trial</button>
-    </form>
+<header>
+    <div class="container">
+        <h1 class="hero-title">Insider Insights. Smarter Trades.</h1>
+        <p class="hero-subtitle">Institutional-grade SEC Insider Intelligence, delivered every trading day.</p>
+    </div>
+</header>
 
-    <div id="message"></div>
-</div>
+<main class="container">
+    <section class="card">
+        <div class="trial-badge">⚡ Limited Time: 14-Day Free Access</div>
+        <h2 style="margin-top:0">Start Your Free Trial</h2>
+        <p style="color: #718096;">Get easy-to-use CSV's of Form 3 & 4 filings directly in your inbox.</p>
+        
+        <form id="signupForm">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="email" id="email" placeholder="Email Address" required>
+            <button type="submit" id="submitBtn">Get Insider Insights →</button>
+        </form>
+        <div id="message"></div>
+    </section>
+
+    <h2 class="section-title">Latest Market Insights</h2>
+    <div class="blog-grid">
+        
+        <article class="post-card">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+            </div>
+            <div class="post-content">
+                <div class="trial-badge" style="background:#e2e8f0; color:#4a5568;">Video Guide</div>
+                <h3>How to Read Form 4 Filings</h3>
+                <p>Learn the secret patterns that successful investors look for in SEC filings.</p>
+            </div>
+        </article>
+
+        <article class="post-card">
+            <div style="height:200px; background: #1a73e8; display:flex; align-items:center; justify-content:center; color:white; font-size:3rem;">📊</div>
+            <div class="post-content">
+                <div class="trial-badge" style="background:#e2e8f0; color:#4a5568;">Article</div>
+                <h3>INSIDERIQ PRO’S GUIDE TO GETTING THE MOST OUT OF INSIDER TRANSACTION DATA</h3>
+                <p>We analyzed over 5,000 filings this quarter. Here is what the CEOs are doing...</p>
+                <a href="#" style="color: var(--primary); font-weight: bold; text-decoration: none;">Read More →</a>
+            </div>
+        </article>
+
+    </div>
+</main>
 
 <script>
     const scriptURL = 'https://script.google.com/macros/s/AKfycbyPUjJfYond8IZzmCKwIG0YfRX2K5Y6PGHo9mTythW4A9lottmLO6X-eqa-83D-ccAJ2Q/exec';
@@ -64,13 +176,13 @@
             msg.className = 'success';
             form.reset();
             btn.disabled = false;
-            btn.innerText = "Start Free Trial";
+            btn.innerText = "Get Insider Insights";
         })
         .catch(error => {
             msg.innerText = "Something went wrong. Please try again.";
             msg.className = 'error';
             btn.disabled = false;
-            btn.innerText = "Start Free Trial";
+            btn.innerText = "Get Insider Insights";
         });
     });
 </script>
