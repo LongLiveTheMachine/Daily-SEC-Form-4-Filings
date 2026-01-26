@@ -3,7 +3,7 @@ layout: default
 title: Home
 ---
 
-# Hi, I’m Alex 👋
+# Hello, InsiderIQ Pro readers 👋
 
 Welcome to my personal website.
 
