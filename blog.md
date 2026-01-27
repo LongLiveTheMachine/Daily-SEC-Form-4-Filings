@@ -5,6 +5,7 @@ nav: blog
 ---
 
 # Daily Insider Filings Review
+<p>Total posts: {{ site.posts | size }}</p>
 
 {% for post in site.posts %}
 <article>
