@@ -228,9 +228,17 @@
             white-space: nowrap;
         }
 
-        nav a.active {
-            border-bottom: 2px solid white;
+        .site-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
+
+        .nav-right a {
+            padding: 10px 14px;
+            text-decoration: none;
+        }
+
 
 
     </style>
@@ -248,7 +256,9 @@
 
 <header>
   <nav>
+      <div class="nav-right">
     <a href="/blog" class="{% if page.nav == 'blog' %}active{% endif %}">Daily Insider Filings Summary</a>   <!-- 👈 this is the “tab” -->
+      </div>
   </nav>
 </header>
 
