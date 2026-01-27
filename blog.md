@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Daily Insider Filings Review
+nav: blog
 ---
 
 # Daily Insider Filings Review
