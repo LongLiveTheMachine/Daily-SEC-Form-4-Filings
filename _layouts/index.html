@@ -218,6 +218,15 @@
             line-height: 1;
             white-space: nowrap;
         }
+        nav a {
+            padding: 10px 14px;
+            text-decoration: none;
+        }
+
+        nav a.active {
+            border-bottom: 2px solid black;
+        }
+
 
     </style>
 </head>
@@ -231,6 +240,12 @@
         <span class="logo-text">InsiderIQ Pro</span>
     </a>
 </div>
+
+<header>
+  <nav>
+    <a href="/blog  class="{% if page.nav == 'blog' %}active{% endif %}">Daily Insider Filings Review</a>   <!-- 👈 this is the “tab” -->
+  </nav>
+</header>
 
 
 <!-- Hero -->
