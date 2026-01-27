@@ -3,7 +3,7 @@ layout: default
 title: Daily Insider Filings Review
 ---
 
-# Blog
+# Daily Insider Filings Review
 
 {% for post in site.posts %}
 ### [{{ post.title }}]({{ post.url }})
