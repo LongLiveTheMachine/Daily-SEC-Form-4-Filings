@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Home
+nav: blog
 ---
 
 # Hello, InsiderIQ Pro readers 👋
