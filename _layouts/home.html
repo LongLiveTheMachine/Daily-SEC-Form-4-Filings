@@ -218,25 +218,41 @@
             line-height: 1;
             white-space: nowrap;
         }
-        nav a {
-            padding: 10px 14px;
-            text-decoration: none;
-            font-size: 1.25rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            line-height: 1;
-            white-space: nowrap;
+        /* Reset nav/header spacing */
+        .site-header {
+            padding: 0;
+            margin: 0;
         }
 
         .site-nav {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: flex-end; /* pushes items to the right */
+            height: 56px;              /* controls navbar height */
+            padding: 0 24px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #e5eef8;
         }
 
-        .nav-right a {
-            padding: 10px 14px;
+/* Link styling */
+        .site-nav a {
+            color: #1f4fd8;            /* clean blue */
+            font-size: 0.95rem;
+            font-weight: 600;
             text-decoration: none;
+            padding: 6px 10px;
+        }
+
+/* Hover */
+        .site-nav a:hover {
+            text-decoration: underline;
+        }
+
+/* Active tab */
+        .site-nav a.active {
+            color: #0b3bbf;
+        }
+
         }
 
 
@@ -254,13 +270,16 @@
     </a>
 </div>
 
-<header>
-  <nav>
-      <div class="nav-right">
-    <a href="/blog" class="{% if page.nav == 'blog' %}active{% endif %}">Daily Insider Filings Summary</a>   <!-- 👈 this is the “tab” -->
-      </div>
+<header class="site-header">
+  <nav class="site-nav">
+    <div class="nav-right">
+      <a href="/blog" class="{% if page.nav == 'blog' %}active{% endif %}">
+        Daily SEC Form 4 Filings Summary
+      </a>
+    </div>
   </nav>
 </header>
+
 
 
 <!-- Hero -->
