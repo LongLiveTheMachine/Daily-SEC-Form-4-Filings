@@ -221,10 +221,15 @@
         nav a {
             padding: 10px 14px;
             text-decoration: none;
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            line-height: 1;
+            white-space: nowrap;
         }
 
         nav a.active {
-            border-bottom: 2px solid black;
+            border-bottom: 2px solid white;
         }
 
 
@@ -243,7 +248,7 @@
 
 <header>
   <nav>
-    <a href="/blog" class="{% if page.nav == 'blog' %}active{% endif %}">Daily Insider Filings Review</a>   <!-- 👈 this is the “tab” -->
+    <a href="/blog" class="{% if page.nav == 'blog' %}active{% endif %}">Daily Insider Filings Summary</a>   <!-- 👈 this is the “tab” -->
   </nav>
 </header>
 
