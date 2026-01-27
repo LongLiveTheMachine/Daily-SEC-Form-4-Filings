@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }} | Today's Most Bought and Sold stocks</title>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="/" class="{% if page.nav == 'home' %}active{% endif %}">Home</a>
+    <a href="/blog" class="{% if page.nav == 'blog' %}active{% endif %}">Blog</a>
+  </nav>
+</header>
+
+<main>
+  <article>
+    <h1>{{ page.title }}</h1>
+    <p><em>{{ page.date | date: "%B %d, %Y" }}</em></p>
+    {{ content }}  <!-- Your post Markdown goes here -->
+  </article>
+</main>
+
+<footer>
+  &copy; 2026 My Site
+</footer>
+
+</body>
+</html>
