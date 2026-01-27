@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "My First Blog Post"
+title: "InsiderIQ Pro: Daily Insider Filings Summary (01/26)"
 date: 2026-01-26
 categories: blog
 ---
 
-Hello world! This is my blog post.
+UAA is the most bought stock filed today
