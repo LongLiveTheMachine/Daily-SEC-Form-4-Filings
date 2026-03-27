@@ -222,8 +222,11 @@
         }
         /* Reset nav/header spacing */
         .site-header {
+            position: relative; /* This "activates" the z-index for children */
+            z-index: 100;       /* Ensures the whole header stays on top */
             padding: 0;
             margin: 0;
+            background: white;  /* Optional: keeps it from being transparent */
         }
 
         .site-nav {
@@ -234,6 +237,8 @@
             padding: 0 24px;
             background-color: #ffffff;
             border-bottom: 1px solid #e5eef8;
+            position: relative; /* Add this */;
+    
         }
 
 /* Link styling */
@@ -243,6 +248,8 @@
             font-weight: 600;
             text-decoration: none;
             padding: 6px 10px;
+            display: inline-block; /* Gives the link a physical width/height */
+            cursor: pointer !important;
         }
         .site-nav a {
             pointer-events: auto !important;
