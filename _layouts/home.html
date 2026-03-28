@@ -305,21 +305,20 @@
 <!-- Clickable Logo -->
  
     
-<header class="site-header">
-  <nav class="site-nav">
-    
+<div class="top-header">
     <a href="/" class="logo-wrap">
         <img src="LOGO3.PNG" alt="InsiderIQ Pro" class="site-logo">
         <span class="logo-text">InsiderIQ Pro</span>
-      </a>
-    
+    </a>
+</div>
 
+<header class="site-header">
+  <nav class="site-nav">
     <div class="nav-right">
-      <a href="{{ '/blog/' | relative_url }}" class="{% if page.url contains 'blog' %}active{% endif %}">
+      <a href="{{ '/blog' | relative_url }}" class="{% if page.nav == 'blog' %}active{% endif %}">
         Daily SEC Form 4 Filings Summary
       </a>
     </div>
-
   </nav>
 </header>
 
