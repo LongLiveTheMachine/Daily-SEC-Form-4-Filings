@@ -44,6 +44,12 @@
             height: 60px; /* Adjusted to fit your 40px logo comfortably */
             padding: 0 30px;
         }
+
+        /* Ensure nav-right doesn't try to take up the whole width */
+        .nav-right {
+            display: flex;
+            gap: 20px;
+        }
         
         .logo-wrap {
             display: flex;
@@ -297,17 +303,16 @@
 <body>
 
 <!-- Clickable Logo -->
-   <div class="top-header-inline">
-      <a href="/" class="logo-wrap">
-        <img src="LOGO3.PNG" alt="InsiderIQ Pro" class="site-logo">
-        <span class="logo-text">InsiderIQ Pro</span>
-      </a>
-    </div>
+ 
     
 <header class="site-header">
   <nav class="site-nav">
     
- 
+    <a href="/" class="logo-wrap">
+        <img src="LOGO3.PNG" alt="InsiderIQ Pro" class="site-logo">
+        <span class="logo-text">InsiderIQ Pro</span>
+      </a>
+    
 
     <div class="nav-right">
       <a href="{{ '/blog/' | relative_url }}" class="{% if page.url contains 'blog' %}active{% endif %}">
