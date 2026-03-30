@@ -40,7 +40,7 @@
         .site-nav {
             display: flex;
             align-items: center;
-            justify-content: space-between
+            justify-content: space-between;
             height: 60px;
             padding: 0 30px;
         }
@@ -49,13 +49,14 @@
             display: flex;
             align-items: center;
             gap:10px;
-            margin-right: auto; /* THIS PUSHES EVERYTHING ELSE TO THE RIGHT */
+            margin-top: 0;
             text-decoration: none;
         }
         
         .nav-right {
             display: flex;
             gap:20px;
+            align-items: center;
             /* No margin-left needed here, the logo pushes it */
         }
                 }
@@ -63,6 +64,7 @@
         .site-logo {
             height: 40px;
             width: auto;
+            display: block;
         }
         
         .nav-right a {
@@ -229,14 +231,6 @@
             display: block !important; 
         }
 
-        .logo-wrap {
-            display: flex;
-            align-items: center;
-            gap: 10px;               /* space between logo & text */
-            text-decoration: none;
-            color: #1f4fd8;
-            margin-top: -6px
-        }
 
         .logo-text {
             font-size: 1.25rem;
@@ -244,7 +238,7 @@
             letter-spacing: -0.5px;
             line-height: 1;
             white-space: nowrap;
-            margin-top: -6px
+           
         }
         /* Reset nav/header spacing */
         .site-header {
@@ -255,17 +249,7 @@
             background: white;  /* Optional: keeps it from being transparent */
         }
 
-        .site-nav {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end; /* pushes items to the right */
-            height: 56px;              /* controls navbar height */
-            padding: 0 24px;
-            background-color: #ffffff;
-            border-bottom: 1px solid #e5eef8;
-            position: relative; /* Add this */;
-    
-        }
+       
 
 /* Link styling */
         .site-nav a {
