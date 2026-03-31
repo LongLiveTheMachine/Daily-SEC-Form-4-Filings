@@ -1,6 +1,9 @@
 title: InsiderIQ Pro's Daily Insider Filings Review
 description: SEC form 4 breakdowns and analysis
-theme: minima
+remote_theme: mmistakes/minimal-mistakes
+
+plugins:
+  - jekyll-remote-theme
 
 url: https://www.insideriqpro.com
 baseurl: ""
