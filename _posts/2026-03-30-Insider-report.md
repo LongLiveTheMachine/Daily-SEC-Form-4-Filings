@@ -5,8 +5,12 @@ date: 2026-03-30
 og_title: "Massive Panny Stock Insider Buying in WVE — RA Capital Signals Confidence"
 og_description: "Over $50M in insider buying as Wave Life Sciences attracts strong institutional conviction."
 og_image:
-categories: [stocks, biotech, insider-trading]
-tags: [WVE, Wave Life Sciences, insider buying, biotech stocks, RA Capital]
+excerpt: "RA Capital aggressively buys WVE shares at rising prices, signaling strong conviction."
+author_profile: true
+read_time: true
+show_date: true
+categories: [stocks, biotech, insider-trading, SEC Form 4, filings]
+tags: [WVE, Wave Life Sciences, insider buying, biotech stocks, RA Capital, SEC Filings]
 description: "RA Capital Management aggressively increases its stake in Wave Life Sciences (WVE) through consecutive insider buying at rising prices."
 ---
 
