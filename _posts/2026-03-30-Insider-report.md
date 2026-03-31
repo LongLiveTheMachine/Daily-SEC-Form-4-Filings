@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Penny Stock Insider Buying Surge at Wave Life Sciences Ltd. (WVE): A Bullish Signal Investors Shouldn’t Ignore?"
-date: 
 og_title: "Massive Panny Stock Insider Buying in WVE — RA Capital Signals Confidence"
 og_description: "Over $50M in insider buying as Wave Life Sciences attracts strong institutional conviction."
 og_image:
