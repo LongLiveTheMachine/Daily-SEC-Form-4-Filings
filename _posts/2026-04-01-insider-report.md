@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 title: "The $400,000 Penny Stock 'Tell': Why This Connect Biopharma Insider Just Stacked 1.1 Million Shares"
 excerpt: "When a billionaire-backed Director buys over a million shares of a sub-$5 penny stock in a single day, the 'Smart Money' isn't just talking—it's shouting."
 date: 2026-04-01
@@ -8,10 +8,14 @@ header:
 categories:
   - Insider Filings
   - Penny Stocks
+  - SEC Form 4
 tags:
   - $CNTB
   - Biotech
   - Form 4
+  - insider buying
+  - SEC Finlings
+description: $400,000 insider buy into penny stock Connect Biopharma Holdings Ltd.
 ---
 
 # The Inside Scoop: A Million-Share Betting Streak
