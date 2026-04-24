@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Insider Trading Today</title>
+</head>
+<body>
+  <h1>Top Insider Activity Today</h1>
+  <div id="data"></div>
+
+  <script>
+    fetch('/data/form4-latest.json')
+      .then(res => res.json())
+      .then(data => {
+        let html = "";
+
+        data.slice(0, 20).forEach(item => {
+          html += `
+            <div style="margin-bottom:10px;">
+              <b>${item.ticker}</b> - ${item.insider} - 
+              ${item.transaction_type} - $${item.amount}
+            </div>
+          `;
+        });
+
+        document.getElementById("data").innerHTML = html;
+      });
+  </script>
+</body>
+</html>
