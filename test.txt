@@ -1,3 +1,13 @@
+
+import pandas as pd
+
+df = your_dataframe
+
+df.to_json("data/form4-latest.json", orient="records")
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
