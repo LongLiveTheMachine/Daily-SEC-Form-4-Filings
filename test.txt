@@ -37,3 +37,13 @@ df.to_json("data/form4-latest.json", orient="records")
   </script>
 </body>
 </html>
+
+
+- name: Run script
+  run: python script.py
+
+- name: Commit files
+  run: |
+    git add .
+    git commit -m "update data"
+    git push
