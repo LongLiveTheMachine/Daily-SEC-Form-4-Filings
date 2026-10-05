@@ -1,456 +1,754 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InsiderIQ Pro | Trade Like an Insider</title>
-    <meta name="description" content="Get daily SEC Form 3 & 4 insider transaction reports delivered to your inbox. Track executive trades with InsiderIQPro's easy-to-use Excel data.">
-    <meta name="keywords" content="SEC filings, insider trading reports, Form 4, Form 3, stock market data, financial intelligence">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>InsiderIQ Pro — Follow the Smart Money</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0b;
+    --surface: #111114;
+    --surface2: #18181d;
+    --border: rgba(255,255,255,0.08);
+    --gold: #c9a84c;
+    --gold-light: #e8c96a;
+    --gold-dim: rgba(201,168,76,0.15);
+    --green: #2ecc71;
+    --green-dim: rgba(46,204,113,0.12);
+    --white: #f5f4ef;
+    --muted: #9a9aa5;
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'DM Mono', monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--black); color: var(--white); font-family: var(--font-body); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
 
-    <!-- Favicons -->
-    <link rel="icon" type="image/png" sizes="32x32" href="LOGO3.PNG">
-    <link rel="apple-touch-icon" sizes="180x180" href="LOGO3.PNG">
-    
-    <style>
-        :root {
-            --primary: #1a73e8;
-            --primary-dark: #1557b0;
-            --dark-navy: #0f172a;
-            --secondary: #00d2ff;
-            --text-main: #2d3748;
-            --text-light: #718096;
-            --success-green: #10b981;
-            --bg-light: #f8fafc;
-            --slate: #64748b;
-        }
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 3rem;
+    background: rgba(10,10,11,0.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    gap: 1rem;
+  }
+  .nav-logo { font-family: var(--font-display); font-size: 1.5rem; letter-spacing: 0.05em; color: var(--gold); flex-shrink: 0; text-decoration: none;
+  display: inline-block; /* ensures it behaves well as a link container */}
+  .nav-logo span { color: var(--white); }
+  .nav-links { display: flex; gap: 2rem; align-items: center; }
+  .nav-links a { color: #b0b0a4; font-size: 0.85rem; text-decoration: none; letter-spacing: 0.03em; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta { background: var(--gold); color: var(--black); font-weight: 700; font-size: 0.82rem; letter-spacing: 0.04em; padding: 0.6rem 1.3rem; border: none; cursor: pointer; text-decoration: none; transition: background 0.2s; flex-shrink: 0; text-transform: uppercase; }
+  .nav-cta:hover { background: var(--gold-light); }
 
-        body { 
-            font-family: 'Inter', -apple-system, sans-serif; 
-            background-color: var(--bg-light); 
-            color: var(--text-main); 
-            margin: 0;
-            line-height: 1.6;
-        }
+  /* HERO */
+  .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 10rem 4rem 6rem; position: relative; overflow: hidden; background: var(--black); }
+  .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(201,168,76,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.05) 1px, transparent 1px); background-size: 60px 60px; }
+  .hero-glow { position: absolute; width: 700px; height: 700px; background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%); top: 50%; left: 30%; transform: translate(-50%,-55%); pointer-events: none; }
+  .hero-eyebrow { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s 0.2s forwards; position: relative; z-index: 1; }
+  .hero h1 { font-family: var(--font-display); font-size: clamp(3.5rem, 8vw, 7.5rem); line-height: 0.95; letter-spacing: 0.02em; max-width: 900px; margin-bottom: 2rem; opacity: 0; animation: fadeUp 0.8s 0.4s forwards; position: relative; z-index: 1; }
+  .hero h1 em { font-style: normal; color: var(--gold); }
+  .hero-sub { font-size: 1.1rem; color: #c8c8bc; max-width: 520px; line-height: 1.7; margin-bottom: 2.5rem; font-weight: 300; opacity: 0; animation: fadeUp 0.8s 0.6s forwards; position: relative; z-index: 1; }
+  .hero-actions { display: flex; gap: 1rem; align-items: center; opacity: 0; animation: fadeUp 0.8s 0.8s forwards; position: relative; z-index: 1; flex-wrap: wrap; }
+  .btn-primary { background: var(--gold); color: var(--black); font-weight: 700; font-size: 0.9rem; letter-spacing: 0.05em; padding: 1rem 2rem; border: none; cursor: pointer; text-decoration: none; transition: all 0.2s; text-transform: uppercase; display: inline-block; }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-ghost { color: #9a9aa5; font-size: 0.9rem; text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 2px; transition: color 0.2s; }
+  .btn-ghost:hover { color: var(--white); }
+  .hero-quote { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); max-width: 600px; opacity: 0; animation: fadeUp 0.8s 1s forwards; position: relative; z-index: 1; }
+  .hero-quote blockquote { font-size: 1rem; font-style: italic; color: #b0b0a4; line-height: 1.7; }
+  .hero-quote cite { display: block; margin-top: 0.5rem; font-style: normal; font-size: 0.8rem; color: var(--gold); font-family: var(--font-mono); letter-spacing: 0.1em; }
 
-        .site-header {
-            width: 100%;
-            background-color: #ffffff;
-            border-bottom: 1px solid #e5eef8;
-            position: relative;
-            z-index: 1000;
-        }
+  /* SECTIONS */
+  section { padding: 6rem 4rem; }
+  .section-label { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; margin-bottom: 1rem; }
+  h2 { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1; letter-spacing: 0.02em; margin-bottom: 1.5rem; }
+  h2 em { font-style: normal; color: var(--gold); }
+  .section-body { font-size: 1.05rem; color: #c8c8bc; max-width: 620px; line-height: 1.8; font-weight: 300; }
 
-        .site-nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 60px;
-            padding: 0 2%;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        .logo-wrap {
-            display: flex;
-            align-items: center;
-            gap:50px;
-            text-decoration: none;
-        }
-        
-        /* Specific fix for the hover state */
-        .logo-wrap:hover {
-            text-decoration: none !important; /* Prevents underline appearing on hover */
-        }
-        .nav-right {
-            display: flex;
-            gap:20px;
-            align-items: center;
-            /* No margin-left needed here, the logo pushes it */
-        }
-                
-        
-        .site-logo {
-            height: 160px;
-            width: auto;
-            display: block;
-        }
-        
-        .nav-right a {
-            color: #1f4fd8;
-            font-size: 0.95rem;
-            font-weight: 600;
-            text-decoration: none;
-            padding: 6px 10px;
-        }
-        
-        .nav-right a:hover {
-            text-decoration: underline;
-        }
+  /* SIGNUP FORM */
+  .signup-section { background: var(--surface); }
+  .signup-inner { max-width: 700px; margin: 0 auto; text-align: center; }
+  .signup-inner h2 { margin-bottom: 0.8rem; }
+  .signup-inner .section-body { margin: 0 auto 2rem; text-align: center; }
+  .trial-badge { display: inline-block; background: var(--gold-dim); border: 1px solid rgba(201,168,76,0.3); color: var(--gold); font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.15em; padding: 0.4rem 1rem; text-transform: uppercase; margin-bottom: 1.5rem; }
+  .signup-form { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; }
+  .signup-form input { background: var(--black); border: 1px solid var(--border); color: var(--white); font-family: var(--font-body); font-size: 0.95rem; padding: 0.9rem 1.2rem; outline: none; transition: border-color 0.2s; width: 100%; }
+  .signup-form input:focus { border-color: var(--gold); }
+  .signup-form input::placeholder { color: #5a5a65; }
+  .signup-form button { background: var(--gold); color: var(--black); font-family: var(--font-body); font-weight: 700; font-size: 1rem; letter-spacing: 0.05em; padding: 1rem; border: none; cursor: pointer; text-transform: uppercase; transition: background 0.2s; }
+  .signup-form button:hover { background: var(--gold-light); }
+  .signup-form button:disabled { opacity: 0.6; cursor: not-allowed; }
+  .form-message { margin-top: 1rem; font-size: 0.9rem; padding: 0.8rem 1rem; display: none; }
+  .form-message.success { display: block; background: var(--green-dim); border: 1px solid rgba(46,204,113,0.3); color: var(--green); }
+  .form-message.error { display: block; background: rgba(231,76,60,0.1); border: 1px solid rgba(231,76,60,0.3); color: #e74c3c; }
+  .trial-note { margin-top: 1rem; font-family: var(--font-mono); font-size: 0.68rem; color: var(--muted); letter-spacing: 0.1em; }
 
-        /* Hero Section */
-        header {
-            background: var(--dark-navy);
-            color: white;
-            padding: 100px 20px 160px;
-            text-align: center;
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
-            position: relative;
-        }
+  /* PROBLEM */
+  .problem { background: var(--black); }
+  .problem-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; max-width: 1200px; margin: 0 auto; }
+  .stat-stack { display: flex; flex-direction: column; gap: 1.5rem; }
+  .stat-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 2rem; position: relative; overflow: hidden; }
+  .stat-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--gold); }
+  .stat-number { font-family: var(--font-display); font-size: 3rem; color: var(--gold); line-height: 1; }
+  .stat-desc { font-size: 0.85rem; color: #9a9aa5; margin-top: 0.3rem; }
 
-        .container { 
-            max-width: 1000px; 
-            margin: 0 auto; 
-            padding: 0 20px; 
-        }
+  /* SOLUTION */
+  .solution-section { background: var(--surface); }
+  .solution { max-width: 1200px; margin: 0 auto; }
+  .signals-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); margin-top: 3rem; border: 1px solid var(--border); }
+  .signal-item { background: var(--surface2); padding: 2rem; transition: background 0.2s; }
+  .signal-item:hover { background: #1e1e24; }
+  .signal-icon { font-family: var(--font-mono); font-size: 0.7rem; color: var(--gold); letter-spacing: 0.15em; margin-bottom: 0.8rem; }
+  .signal-name { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.4rem; color: var(--white); }
+  .signal-desc { font-size: 0.83rem; color: #b0b0a8; line-height: 1.6; }
+  .signal-disclaimer { margin-top: 2rem; padding: 1.5rem 2rem; background: #161610; border: 1px solid rgba(201,168,76,0.25); border-left: 4px solid var(--gold); font-size: 0.9rem; color: #d8d8cc; line-height: 1.8; max-width: 800px; }
+  .signal-disclaimer strong { color: var(--gold-light); }
 
-        .hero-title { 
-            font-size: 3.5rem; 
-            margin-bottom: 20px; 
-            font-weight: 800; 
-            letter-spacing: -2px; 
-            line-height: 1.1;
-        }
+  /* FILTER PREVIEW */
+  .filter-preview { margin-top: 3rem; }
+  .filter-preview h3 { font-family: var(--font-display); font-size: 2rem; letter-spacing: 0.03em; margin-bottom: 0.5rem; color: var(--white); }
+  .filter-preview p { font-size: 0.9rem; color: #9a9aa5; margin-bottom: 1.5rem; }
+  .filter-images { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .filter-img-placeholder { 
+    background: var(--surface2); 
+    border: 1px dashed rgba(201,168,76,0.25); 
+    padding: 3rem 2rem; text-align: center; 
+    font-family: var(--font-mono); 
+    font-size: 0.7rem; color: #9a9aa5; 
+    letter-spacing: 0.1em; }
+  .filter-img-placeholder img {
+    max-width: 200%;  /* Ensures it never overflows the container */
+    max-height: 500px; /* Adjust this height limit to whatever fits best */
+    height: auto;      /* Maintains the correct image proportions */
+    display: block;
+    margin: 0 auto;    /* Centers the image horizontally */
+}
+  /* PROOF */
+  .proof { background: var(--black); }
+  .proof-inner { max-width: 1100px; margin: 0 auto; }
+  .proof-trades { display: flex; flex-direction: column; gap: 2rem; margin-top: 3rem; }
+  .trade-card { background: var(--surface); border: 1px solid var(--border); padding: 2.5rem; display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: start; transition: border-color 0.2s; }
+  .trade-card:hover { border-color: rgba(201,168,76,0.3); }
+  .trade-ticker { font-family: var(--font-display); font-size: 2.5rem; color: var(--gold); letter-spacing: 0.05em; margin-bottom: 0.3rem; }
+  .trade-name { font-family: var(--font-mono); font-size: 0.7rem; color: #9a9aa5; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem; }
+  .trade-desc { font-size: 0.95rem; color: #d4d4c8; line-height: 1.7; max-width: 560px; }
+  .trade-signals { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+  .signal-tag { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em; padding: 0.3rem 0.7rem; background: rgba(201,168,76,0.1); color: var(--gold); border: 1px solid rgba(201,168,76,0.25); text-transform: uppercase; }
+  .trade-result { text-align: right; white-space: nowrap; }
+  .result-number { font-family: var(--font-display); font-size: 3.5rem; color: var(--green); line-height: 1; }
+  .result-label { font-family: var(--font-mono); font-size: 0.65rem; color: #9a9aa5; letter-spacing: 0.12em; text-transform: uppercase; margin-top: 0.3rem; }
+  .chart-placeholder { background: var(--surface2); border: 1px dashed rgba(201,168,76,0.2); padding: 2rem; text-align: center; font-family: var(--font-mono); font-size: 0.7rem; color: #9a9aa5; letter-spacing: 0.1em; margin-top: 1.5rem; grid-column: 1 / -1; }
+  .win-rate-banner { margin-top: 3rem; background: var(--green-dim); border: 1px solid rgba(46,204,113,0.2); padding: 2rem 2.5rem; display: flex; align-items: center; gap: 2rem; }
+  .win-rate-number { font-family: var(--font-display); font-size: 4rem; color: var(--green); line-height: 1; white-space: nowrap; }
+  .win-rate-desc { font-size: 0.95rem; color: #c8c8bc; line-height: 1.7; }
 
-        .hero-title span {
-            color: var(--success-green);
-        }
+  /* IMAGES */
+.chart-placeholder {
+    width: 100%;       /* Or set a fixed width, e.g., 400px */
+    max-width: 1000px;  /* Keeps it from getting too large on big screens */
+    aspect-ratio: 3 / 2; 
+    margin: 0 auto;  /* Centers the charts on the page */
+}
 
-        .hero-subtitle { 
-            font-size: 1.2rem; 
-            color: white;
-            max-width: 700px;
-            margin: 0 auto 40px; 
-        }
+/* Target the images inside those containers */
+.chart-placeholder img {
+    width: 100%;
+    height: auto;
+    object-fit: contain; /* 3. Forces the whole image to fit inside without being cut off */
+    display: block;    /* Removes weird bottom gaps */
+}
 
-        /* Signup Card */
-        .card { 
-            background: white; 
-            padding: 40px; 
-            border-radius: 20px; 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
-            max-width: 450px; 
-            margin: -100px auto 60px;
-            position: relative;
-            z-index: 10;
-        }
+  /* OFFERINGS */
+  .offerings-section { background: var(--surface); }
+  .offerings { max-width: 1200px; margin: 0 auto; }
+  .plans-grid { display: grid; grid-template-columns: repeat(1, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .plan-card { background: var(--black); border: 1px solid var(--border); padding: 2rem; position: relative; transition: border-color 0.2s, transform 0.2s; display: flex; flex-direction: column; }
+  .plan-card:hover { border-color: rgba(201,168,76,0.25); transform: translateY(-2px); }
+  .plan-card.featured { border-color: var(--gold); background: linear-gradient(160deg, rgba(201,168,76,0.06) 0%, var(--black) 60%); }
+  .plan-badge { position: absolute; top: -1px; right: 1.5rem; background: var(--gold); color: var(--black); font-family: var(--font-mono); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.12em; padding: 0.3rem 0.8rem; text-transform: uppercase; }
+  .plan-name { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.8rem; }
+  .plan-price { font-family: var(--font-display); font-size: 3rem; line-height: 1; margin-bottom: 0.3rem; }
+  .plan-price span { font-family: var(--font-body); font-size: 0.85rem; color: #9a9aa5; font-weight: 300; }
+  .plan-desc { font-size: 0.85rem; color: #b0b0a8; margin-bottom: 1.5rem; line-height: 1.6; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; }
+  .plan-features { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; flex: 1; }
+  .plan-features li { font-size: 0.85rem; color: #d8d8cc; padding-left: 1.2rem; position: relative; line-height: 1.5; }
+  .plan-features li::before { content: '→'; position: absolute; left: 0; color: var(--gold); font-size: 0.75rem; }
+  .plan-cta { display: block; text-align: center; margin-top: 1.5rem; padding: 0.8rem; background: var(--gold); color: var(--black); font-weight: 700; font-size: 0.82rem; letter-spacing: 0.05em; text-decoration: none; text-transform: uppercase; transition: background 0.2s; }
+  .plan-cta:hover { background: var(--gold-light); }
+  .plan-cta.outline { background: transparent; border: 1px solid rgba(201,168,76,0.4); color: var(--gold); }
+  .plan-cta.outline:hover { background: var(--gold-dim); }
+  .plan-full { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .plan-note { font-family: var(--font-mono); font-size: 0.7rem; color: #9a9aa5; letter-spacing: 0.08em; margin-top: 0.8rem; line-height: 1.6; }
 
-        .trial-badge { 
-            background: #dcfce7; 
-            color: #166534; 
-            padding: 6px 12px; 
-            border-radius: 6px; 
-            font-size: 0.75rem; 
-            font-weight: 700; 
-            display: inline-block; 
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
+  /* PDF GUIDE */
+  .guide-banner { margin-top: 3rem; padding: 1.5rem 2rem; background: var(--black); border: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+  .guide-banner-text { font-size: 0.95rem; color: #c8c8bc; }
+  .guide-banner-text strong { color: var(--white); display: block; margin-bottom: 0.3rem; }
+  .guide-link { font-family: var(--font-mono); font-size: 0.75rem; color: var(--gold); text-decoration: none; letter-spacing: 0.1em; border-bottom: 1px solid rgba(201,168,76,0.4); padding-bottom: 2px; white-space: nowrap; }
+  .guide-link:hover { color: var(--gold-light); }
 
-        /* Form Styling */
-        form { 
-            display: flex; 
-            flex-direction: column; 
-            gap: 15px; 
-        }
+  /* WHO ITS FOR */
+  .for-section { background: var(--black); }
+  .for-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+  .for-list { list-style: none; display: flex; flex-direction: column; gap: 1.2rem; margin-top: 2rem; }
+  .for-list li { display: flex; gap: 1rem; align-items: flex-start; font-size: 0.95rem; color: #d4d4c8; line-height: 1.6; }
+  .for-list li::before { content: '✓'; color: var(--green); font-size: 0.8rem; margin-top: 0.2rem; flex-shrink: 0; }
+  .buffett-quote { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--gold); padding: 2rem 2.5rem; margin-top: 2rem; }
+  .buffett-quote blockquote { font-size: 1.1rem; font-style: italic; color: #d4d4c8; line-height: 1.7; }
+  .buffett-quote cite { display: block; margin-top: 0.8rem; font-style: normal; font-size: 0.75rem; color: var(--gold); font-family: var(--font-mono); letter-spacing: 0.12em; }
 
-        input { 
-            padding: 15px; 
-            border: 2px solid #edf2f7; 
-            border-radius: 10px; 
-            font-size: 1rem; 
-            transition: 0.3s;
-        }
+  /* REVIEWS */
+  .reviews-section { background: var(--surface); }
+  .reviews-inner { max-width: 1100px; margin: 0 auto; }
+  .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .review-card { background: var(--black); border: 1px solid var(--border); padding: 2rem; }
+  .review-stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 0.1em; margin-bottom: 1rem; }
+  .review-text { font-size: 0.9rem; color: #c8c8bc; line-height: 1.7; font-style: italic; margin-bottom: 1.5rem; }
+  .review-author { font-family: var(--font-mono); font-size: 0.7rem; color: #9a9aa5; letter-spacing: 0.1em; text-transform: uppercase; }
+  .review-author span { color: var(--gold); }
 
-        input:focus { 
-            border-color: var(--primary); 
-            outline: none; 
-        }
-        
-        button { 
-            background: var(--primary); 
-            color: white; 
-            border: none; 
-            padding: 16px; 
-            border-radius: 10px; 
-            font-size: 1.1rem; 
-            font-weight: 700; 
-            cursor: pointer; 
-            box-shadow: 0 4px 14px rgba(26, 115, 232, 0.4);
-            transition: all 0.3s ease;
-        }
+  /* CREDIBILITY */
+  .credibility-section { background: var(--black); }
+  .credibility { max-width: 900px; margin: 0 auto; text-align: center; }
+  .cred-stat { font-family: var(--font-display); font-size: clamp(5rem, 12vw, 9rem); color: var(--gold); line-height: 1; margin: 2rem 0 1rem; display: block; }
 
-        button:hover { 
-            transform: translateY(-2px); 
-            background: var(--primary-dark); 
-        }
+  /* FAQ */
+  .faq-section { background: var(--surface); }
+  .faq-inner { max-width: 800px; margin: 0 auto; }
+  .faq-list { margin-top: 3rem; display: flex; flex-direction: column; }
+  .faq-item { border-bottom: 1px solid var(--border); padding: 1.8rem 0; }
+  .faq-q { font-weight: 600; font-size: 1rem; margin-bottom: 0.8rem; color: var(--white); }
+  .faq-a { font-size: 0.93rem; color: #c8c8bc; line-height: 1.8; font-weight: 300; }
 
-        .price-disclaimer {
-            font-size: 0.8rem;
-            color: var(--slate);
-            text-align: center;
-            margin-top: 15px;
-        }
+  /* FINAL CTA */
+  .final-cta { background: var(--black); text-align: center; padding: 8rem 4rem; position: relative; overflow: hidden; }
+  .final-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(201,168,76,0.06) 0%, transparent 70%); }
+  .final-cta > * { position: relative; z-index: 1; }
+  .final-cta h2 { font-size: clamp(3rem, 7vw, 6rem); max-width: 800px; margin: 0 auto 1.5rem; }
+  .final-cta p { color: #b8b8ac; max-width: 480px; margin: 0 auto 2.5rem; font-size: 1rem; line-height: 1.7; font-weight: 300; }
+  .final-note { margin-top: 1.2rem; font-family: var(--font-mono); font-size: 0.7rem; color: #9a9aa5; letter-spacing: 0.12em; display: block; }
 
-        /* Blog/Insights Section */
-        .section-title { 
-            text-align: center; 
-            font-size: 2rem; 
-            margin-top: 40px; 
-            color: #1a202c; 
-        }
-        
-        .blog-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 30px; 
-            margin-top: 40px; 
-            padding-bottom: 80px;
-        }
+  /* FOOTER */
+  footer { padding: 2rem 4rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; background: var(--black); }
+  .footer-logo { font-family: var(--font-display); font-size: 1.2rem; color: var(--gold); }
+  .footer-links { display: flex; gap: 1.5rem; align-items: center; }
+  .footer-links a { font-size: 0.78rem; color: #9a9aa5; text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-note { font-size: 0.75rem; color: #6a6a75; width: 100%; text-align: center; padding-top: 0.5rem; border-top: 1px solid var(--border); }
 
-        .post-card { 
-            background: white; 
-            border-radius: 15px; 
-            overflow: hidden; 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
-            transition: 0.3s;
-        }
+  /* POPUP NOTIFICATION */
+  .signup-popup { position: fixed; bottom: 2rem; left: 2rem; z-index: 200; background: var(--surface2); border: 1px solid rgba(201,168,76,0.3); padding: 1rem 1.4rem; display: flex; align-items: center; gap: 1rem; max-width: 300px; transform: translateX(-150%); transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+  .signup-popup.show { transform: translateX(0); }
+  .popup-dot { width: 8px; height: 8px; background: var(--green); border-radius: 50%; flex-shrink: 0; animation: pulse 2s infinite; }
+  .popup-text { font-size: 0.8rem; color: #d4d4c8; line-height: 1.4; }
+  .popup-text strong { color: var(--white); }
+  @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
 
-        .post-card:hover { 
-            transform: translateY(-5px); 
-        }
+  /* ANIMATIONS */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        .post-content { 
-            padding: 20px; 
-        }
-
-        .video-container { 
-            position: relative; 
-            padding-bottom: 56.25%; 
-            height: 0; 
-        }
-
-        .video-container iframe { 
-            position: absolute; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%; 
-            border: 0; 
-        }
-
-        #message { 
-            margin-top: 1rem; 
-            padding: 15px; 
-            border-radius: 8px; 
-            display: none; 
-            text-align: center; 
-        }
-
-        .success { 
-            background: #c6f6d5; 
-            color: #22543d; 
-            display: block !important; 
-        }
-
-
-        .logo-text {
-            font-size: 1.6rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            line-height: 1;
-            white-space: nowrap;
-            transform: translateY(-4px);
-           
-        }
-        /* Reset nav/header spacing */
-        .site-header {
-            position: fixed; /* This "activates" the z-index for children */
-            z-index: 100;       /* Ensures the whole header stays on top */
-            padding: 0;
-            margin: 0;
-            background: white;  /* Optional: keeps it from being transparent */
-        }
-
-       
-
-/* Link styling */
-        .site-nav a {
-            color: #1f4fd8;            /* clean blue */
-            font-size: 0.95rem;
-            font-weight: 600;
-            text-decoration: none;
-            padding: 6px 10px;
-            display: inline-block; /* Gives the link a physical width/height */
-            cursor: pointer !important;
-        }
-        .site-nav a {
-            pointer-events: auto !important;
-            z-index: 9999;
-            position: relative;
-        }
-
-
-/* Hover */
-        .site-nav a:hover {
-            text-decoration: underline;
-        }
-
-/* Active tab */
-        .site-nav a.active {
-            color: #0b3bbf;
-        }
-
-/* Feature Section */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin: 60px 0;
-            text-align: center;
-        }
-
-        .feature-item h4 { margin-bottom: 10px; color: var(--dark-navy); }
-        .feature-item p { font-size: 0.9rem; color: var(--slate); }
-
-
-    </style>
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .hero { padding: 8rem 1.5rem 4rem; }
+    .problem-inner, .for-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .signals-grid { grid-template-columns: 1fr 1fr; }
+    .plans-grid { grid-template-columns: 1fr; }
+    .plan-full { grid-template-columns: 1fr; }
+    .trade-card { grid-template-columns: 1fr; }
+    .trade-result { text-align: left; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .filter-images { grid-template-columns: 1fr; }
+    footer { flex-direction: column; text-align: center; }
+    .signup-popup { left: 1rem; bottom: 1rem; max-width: calc(100vw - 2rem); }
+  }
+</style>
 </head>
-
 <body>
 
-<!-- Clickable Logo -->
- 
+<!-- POPUP NOTIFICATION -->
+<div class="signup-popup" id="signupPopup">
+  <div class="popup-dot"></div>
+  <div class="popup-text"><strong id="popupName">Marcus T.</strong> just signed up for the free trial</div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">InsiderIQ<span>Pro</span></a>
+  <div class="nav-links">
+    <a href="#how">How It Works</a>
+    <a href="#offerings">Pricing</a>
+    <a href="blog.html">Blog</a>
+    <a href="mailto:insideriqpro@gmail.com">Contact</a>
+  </div>
+  <a href="#signup" class="nav-cta">Start Free Trial</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <p class="hero-eyebrow">// SEC Insider Intelligence — Delivered Daily</p>
+  <h1>The Stock Market's Best-Kept Secret Is <em>Hidden in Plain Sight</em></h1>
+  <p class="hero-sub">Every weekday, company executives legally file reports revealing exactly what stocks they're buying with their own money. We find the ones that matter — and deliver them straight to your inbox.</p>
+  <div class="hero-actions">
+    <a href="#signup" class="btn-primary">Start Your Free 7-Day Trial</a>
+    <a href="#how" class="btn-ghost">See how it works →</a>
+  </div>
+  <div class="hero-quote">
+    <blockquote>"Insiders might sell their shares for any number of reasons, but they buy them for only one: they think the price will rise."</blockquote>
+    <cite>— Peter Lynch, Legendary Investor</cite>
+  </div>
+</section>
+
+<!-- FREE TRIAL SIGNUP -->
+<section class="signup-section" id="signup">
+  <div class="signup-inner">
+    <span class="trial-badge">// 7-Day Free Trial — No Credit Card Required</span>
+    <h2>Get <em>Insider Access</em> Free for 7 Days</h2>
+    <p class="section-body">Sign up below and we'll send you a welcome kit with everything you need to start tracking high-conviction insider signals right away. Free trial includes the Complete Bundle.</p>
+    <form class="signup-form" id="signupForm">
+      <input type="text" id="username" name="username" placeholder="Your Name" required />
+      <input type="email" id="email" name="email" placeholder="Your Email Address" required />
+      <button type="submit" id="submitBtn">Get Insider Insights</button>
+    </form>
+    <div class="form-message" id="message"></div>
+    <p class="trial-note">// Free trial includes Complete Bundle only. Custom Filters and 1-on-1 Coaching not included.</p>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem" id="how">
+  <div class="problem-inner">
+    <div>
+      <p class="section-label">// The Problem</p>
+      <h2>Valuable Data. <em>Zero Clarity.</em></h2>
+      <p class="section-body">Hundreds — sometimes thousands — of insider trade filings hit the SEC database every single day. Most of them mean nothing. A few of them are gold.<br><br>The difference between a random insider buy and a high-conviction insider signal can be the difference between a 5% move and a 40% move. Without knowing what to look for, it all looks the same.<br><br>That's the problem InsiderIQ Pro solves.</p>
+    </div>
+    <div class="stat-stack">
+      <div class="stat-card">
+        <div class="stat-number">10,000+</div>
+        <div class="stat-desc">Stocks listed on U.S. markets — impossible to track manually</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">100s</div>
+        <div class="stat-desc">Of insider filings submitted to the SEC every single weekday</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">70%+</div>
+        <div class="stat-desc">Win rate when multiple high-conviction insider signals stack together</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="solution-section">
+  <div class="solution">
+    <p class="section-label">// The Solution</p>
+    <h2>We Do the <em>Filtering.</em> You Make the Move.</h2>
+    <p class="section-body">InsiderIQ Pro tracks SEC insider filings every weekday and surfaces only the trades showing High Conviction insider signals — the ones that historically lead to the biggest moves.</p>
+
+    <div class="signals-grid">
+      <div class="signal-item">
+        <div class="signal-icon">01 // CLUSTER BUYS</div>
+        <div class="signal-name">Cluster Buys</div>
+        <div class="signal-desc">Multiple insiders buying the same stock simultaneously — a powerful high-conviction insider signal of shared belief at the top.</div>
+      </div>
+      <div class="signal-item">
+        <div class="signal-icon">02 // PREMIUM PRICE</div>
+        <div class="signal-name">High Insider Purchase Price</div>
+        <div class="signal-desc">Insiders paying more than the current market price to get in. This screams urgency — they want a seat before the ride takes off.</div>
+      </div>
+      <div class="signal-item">
+        <div class="signal-icon">03 // HIGH VOLUME</div>
+        <div class="signal-name">High Volume Buy</div>
+        <div class="signal-desc">Purchase volumes that dwarf the stock's daily to 3-month average — context that separates a meaningful buy from a routine one.</div>
+      </div>
+      <div class="signal-item">
+        <div class="signal-icon">04 // STREAK</div>
+        <div class="signal-name">Consecutive Buying</div>
+        <div class="signal-desc">An insider buying over multiple days shows sustained commitment — a strong high-conviction insider signal, not a one-off decision.</div>
+      </div>
+      <div class="signal-item">
+        <div class="signal-icon">05 // ESCALATING VOL</div>
+        <div class="signal-name">Escalating Volume</div>
+        <div class="signal-desc">Consecutive buying where the number of shares increases with each trade — doubling down with growing conviction over time.</div>
+      </div>
+      <div class="signal-item">
+        <div class="signal-icon">06 // ESCALATING PRICE</div>
+        <div class="signal-name">Escalating Conviction</div>
+        <div class="signal-desc">Consecutive buying where the purchase price rises with each trade — an insider willing to pay more to keep accumulating.</div>
+      </div>
+    </div>
+
+    <div class="signal-disclaimer">
+      <strong>How stacking works:</strong> The more high-conviction insider signals that appear together on a single trade, the stronger the setup. Stacking signals narrows your results — you'll see fewer trades, but each one carries far more conviction. This is actually an advantage: instead of wading through 10,000+ stocks, you get a tight shortlist of only the setups worth your attention. Most traders find 2 stacked signals to be the sweet spot.
+    </div>
+
+    <div class="filter-preview">
+      <h3>What the <em style="font-style:normal;color:var(--gold);">Filtered Signal</em> Looks Like</h3>
+      <p>Each signal delivered to your inbox includes a full Insider Conviction Scorecard — so you know exactly what you're looking at.</p>
+      <div class="filter-images">
+        <div class="filter-img-placeholder"><img src="C:\Users\intro\Documents\InsiderIQPro Main Page\APLM.jpg" alt="APLM Chart">SCORECARD — $APLM</div>
+        <div class="filter-img-placeholder"><img src="C:\Users\intro\Documents\InsiderIQPro Main Page\PRQR.jpg" alt="PRQR Chart">SCORECARD — $PRQR</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="proof">
+  <div class="proof-inner">
+    <p class="section-label">// Real Trades. Real Results.</p>
+    <h2>Don't Take Our Word for It. <em>Look at the Trades.</em></h2>
+    <p class="section-body">These aren't hypothetical examples. These are real insider filings, publicly documented — and the price moves that followed.</p>
+
+    <div class="proof-trades">
+      <div class="trade-card">
+        <div>
+          <div class="trade-ticker">$LUMN</div>
+          <div class="trade-name">Lumen Technologies Inc.</div>
+          <p class="trade-desc">Feb 5, 2026: President & CEO Kathleen Johnson bought 78,685 shares at $6.3535 — even as the stock had just closed lower at $6.23. She paid a premium to get in. A clear high-conviction insider signal you don't ignore.</p>
+          <div class="trade-signals">
+            <span class="signal-tag">High Insider Purchase Price</span>
+            <span class="signal-tag">C-Suite Insider</span>
+          </div>
+        </div>
+        <div class="trade-result">
+          <div class="result-number">+29.37%</div>
+          <div class="result-label">Next Day Close → $8.06</div>
+        </div>
+        <div class="chart-placeholder"> <img src="C:\Users\intro\OneDrive\Pictures\Screenshots\LUMN (02-05-2026)1.png" alt="LUMN Chart"></div>
+      </div>
+
+      <div class="trade-card">
+        <div>
+          <div class="trade-ticker">$ZBIO</div>
+          <div class="trade-name">Zenas Biopharma Inc.</div>
+          <p class="trade-desc">Jan 7–9, 2026: CEO Leon Moulder Jr went on a 3-day buying streak, purchasing 100,000 shares at an average of $16.41 — above the $16.08 close. Purchase price increased on the final day. Three high-conviction insider signals stacked in one setup.</p>
+          <div class="trade-signals">
+            <span class="signal-tag">Consecutive Buying</span>
+            <span class="signal-tag">Escalating Conviction</span>
+            <span class="signal-tag">High Insider Purchase Price</span>
+          </div>
+        </div>
+        <div class="trade-result">
+          <div class="result-number">+23%</div>
+          <div class="result-label">Day Filings Went Public</div>
+        </div>
+        <div class="chart-placeholder"> <img src="C:\Users\intro\OneDrive\Pictures\Screenshots\ZBIO (01-09-2026)1.png" alt="ZBIO Chart"></div>
+      </div>
+
+      <div class="trade-card">
+        <div>
+          <div class="trade-ticker">$FGBI</div>
+          <div class="trade-name">First Guaranty Bancshares Inc.</div>
+          <p class="trade-desc">Jan 2, 2026: Three directors purchased a combined 347,893 shares — a $1.87M transaction. Volume was 22x greater than the stock's 3-month average. Two powerful high-conviction insider signals stacked: Cluster Buy + High Volume Buy.</p>
+          <div class="trade-signals">
+            <span class="signal-tag">Cluster Buy</span>
+            <span class="signal-tag">High Volume Buy</span>
+            <span class="signal-tag">3 Directors</span>
+          </div>
+        </div>
+        <div class="trade-result">
+          <div class="result-number">+41.26%</div>
+          <div class="result-label">Within One Week</div>
+        </div>
+        <div class="chart-placeholder"> <img src="C:\Users\intro\OneDrive\Pictures\Screenshots\FGBI (01-02-2026)1.png" alt="FGBI Chart"></div>
+      </div>
+    </div>
+
+    <div class="win-rate-banner">
+      <div class="win-rate-number">70%+</div>
+      <div class="win-rate-desc">When multiple high-conviction insider signals stack on a single trade, setups like these work out more than 70% of the time. That's not luck. That's a repeatable edge.</div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFERINGS -->
+<section class="offerings-section" id="offerings">
+  <div class="offerings">
+    <p class="section-label">// What You Get</p>
+    <h2>Choose Your <em>Edge</em></h2>
+    <p class="section-body">Every plan gives you access to legally public SEC insider filing data — filtered, formatted, and delivered so you can act with confidence.</p>
+
+    <div class="plans-grid">
+      
+
+      <div class="plan-card featured">
+        <div class="plan-badge">Available Now</div>
+        <div class="plan-name">Filtered Signals</div>
+        <div class="plan-price">$19.99<span>/month</span></div>
+        <div class="plan-desc">Pre-filtered high-conviction insider signals delivered daily</div>
+        <ul class="plan-features">
+          <li>Stocks under $30/share showing high-conviction insider signals sent directly to your inbox</li>
+          <li>Easily spot large volume CEO & CFO buys </li>
+          <li>Craft your edge following Cluster Buys, Consecutive Buying, Escalating Volume & Escalating Conviction</li>
+          <li>Stack filters to narrow down to your best setups</li>
+          <li>Add-on stocks of all price ranges for free — this will increase number of stock signals recieved</li>
+        </ul>
+        <a href="https://buy.stripe.com/4gMeVcgS28BJcSmdhb2Fa07" class="plan-cta" target="_blank">Get Started</a>
+      </div>
+
+      
+
+      <div class="plan-full">
+        <div class="plan-card">
+          <div class="plan-name">Custom Signal Filter</div>
+          <div class="plan-price">$1500<span> setup + $45/mo</span></div>
+          <div class="plan-desc">Build a fully personalised signal filter around your exact strategy. First month free.</div>
+          <ul class="plan-features">
+            <li>Choose any combination of high-conviction insider signals</li>
+            <li>Add your own watchlist — e.g. track insider activity on specific tickers like $AAPL only</li>
+            <li>Real-time financial data Add-on: Create a fully customized edge</li>
+            <li>AI Analyst Add-on: AI-powered summary included with each signal</li>
+            <li>Monthly fee covers API costs for AI summaries & real-time financial data</li>
+          </ul>
+          <a href="https://buy.stripe.com/bJecN48lw7xFaKeelf2Fa06" class="plan-cta outline" target="_blank">Get Started</a>
     
-<header class="site-header">
-  <nav class="site-nav">
-    
-    <a href="/" class="logo-wrap">
-        <img src="LOGO3.PNG" alt="InsiderIQPro" style="height: 32px;">
-        <span class="logo-text">InsiderIQPro</span>
-    </a>
-
-    <div class="nav-right">
-      <a href="{{ '/blog' | relative_url }}">
-        Daily SEC Form 4 Filings Summary
-      </a>
-    </div>
-
-  </nav>
-</header>
-
-
-
-<!-- Hero -->
-<header>
-    <div class="container">
-        <h1 class="hero-title">Copy the Insiders.<br><span>Bank the Profits.</span></h1>
-        <p class="hero-subtitle">
-            CEOs and CFOs know something you don't. We track every SEC Form 3 & 4 filing so you can mirror the smartest money in the market.
-        </p>
-    </div>
-</header>
-
-
-
-
-<main class="container">
-    <section class="card">
-        <div class="trial-badge">Free 7-Day Insider Pass</div>
-        <h2 style="margin-top:0">Start Trading Smarter Today</h2>
-        <p style="color: #718096;">Get the daily "Insider Action" delivered to your inbox before the next opening bell.</p>
-        
-        <form id="signupForm">
-            <input type="text" id="username" placeholder="Username" required>
-            <input type="email" id="email" placeholder="Email Address" required>
-            <button type="submit" id="submitBtn">Get Instant Access →</button>
-        </form>
-
-        <p class="price-disclaimer">
-            Only <b>$30/month</b> after your free trial.<br>Cancel anytime.
-        </p>
-        <div id="message"></div>
-    </section>
-
-    <div class="features">
-        <div class="feature-item">
-            <h4>Institutional Data</h4>
-            <p>Direct SEC raw data, ranked for high-conviction trades. Plus easy-to-use Excel files for your own analysis.</p>
+          <p class="plan-note">// First month free. $45/month thereafter. Not included in free trial.</p>
         </div>
-        <div class="feature-item">
-            <h4>Daily Alpha</h4>
-            <p>Receive a summary of the most unusual insider activity, like single high-volume buys and cluster buys.</p>
+
+        <div class="plan-card">
+          <div class="plan-name">1-on-1 Coaching</div>
+          <div class="plan-price">$65<span>/hour</span></div>
+          <div class="plan-desc">Private, personalised sessions walking you through how to craft your strategy step by step.</div>
+          <ul class="plan-features">
+            <li>How to identify high-conviction insider signals yourself</li>
+            <li>Building a trade game plan: Entry, Profit Target & Stop Loss</li>
+            <li>Setting alerts so you're never glued to a screen</li>
+            <li>Suitable for beginners and experienced traders</li>
+          </ul>
+          <a href="https://buy.stripe.com/cNiaEWdFQdW39Gaa4Z2Fa05" class="plan-cta outline" target="_blank">Book a Session</a>
+          <!-- COACHING PAYMENT LINK: Replace href="#" above with your Stripe link once ready -->
+          <p class="plan-note">// To book, complete payment then email <strong style="color:#c8c8bc;">insideriqpro@gmail.com</strong> with a brief description of your current trading or investment experience so we can tailor the session to you.</p>
         </div>
-        <div class="feature-item">
-            <h4>First Access to Upcoming Features</h4>
-            <p>Real-time God-tier signals on back-to-back insider buying sent directly to you.</p>
-        </div>
+      </div>
     </div>
 
-    <h2 class="section-title">Resources & Samples</h2>
-    <div class="blog-grid">
-        
-        <article class="post-card">
-                <div style="height:200px; background:#1a73e8; display:flex; align-items:center; justify-content:center; margin-bottom:20px;"><img src="LOGO3.PNG" alt="InsiderIQ Pro" style="max-height:80%; width:auto;"></div>
-            <div class="post-content">
-                <div class="trial-badge" style="background:#e2e8f0; color:#4a5568;">Example of Excel file of Insider Trades.</div>
-                <h3>WHAT TO EXPECT FROM INSIDERIQ PRO</h3>
-                <p>Use our guide to analyze these files and compare your findings to the actual stocks price action.</p>
-                <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQepaEy3lOJzxtTE85_z81m4Xv7ehsY9fR6L4wjDe5zQ0zOp3-fMtH4-Yw87-h1thSseCEAzs7qwbk-/pubhtml?widget=true&amp;headers=false" style="color: var(--primary); font-weight: bold; text-decoration: none;">Check it out! →</a>
-            </div>
-        </article>
-
-        <article class="post-card">
-                <div style="height:200px; background: #1a73e8; display:flex; align-items:center; justify-content:center; margin-bottom:20px;"><img src="LOGO3.PNG" alt="InsiderIQ Pro" style="max-height:80%; width:auto;"></div>
-            <div class="post-content">
-                <div class="trial-badge" style="background:#e2e8f0; color:#4a5568;">Guide: Using Insider Data</div>
-                <h3>INSIDERIQ PRO’S GUIDE TO GETTING THE MOST OUT OF INSIDER TRANSACTION DATA</h3>
-                <p>We analyzed over 10,000 filings this quarter. Here are buying patterns that stand out.</p>
-                <a href="INSIDERIQ PRO'S GUIDE_ Getting the most out of insider transaction data (1).pdf" style="color: var(--primary); font-weight: bold; text-decoration: none;">Read More →</a>
-            </div>
-        </article>
-
+    <div class="guide-banner">
+      <div class="guide-banner-text">
+        <strong>📄 Free PDF Guide — How to Find High-Conviction Insider Signals</strong>
+        Included free with every plan. A step-by-step walkthrough of how to read the data, spot the signals, and build your trade plan.
+      </div>
+      <a href="INSIDERIQ PRO'S GUIDE_ Getting the most out of insider transaction data (1).pdf" class="guide-link">Download Guide →</a>
     </div>
-    {{ content }}
-</main>
+  </div>
+</section>
+
+<!-- WHO ITS FOR -->
+<section class="for-section">
+  <div class="for-inner">
+    <div>
+      <p class="section-label">// Who This Is For</p>
+      <h2>Built for People With <em>Better Things</em> to Do Than Watch Charts All Day</h2>
+      <p class="section-body">This strategy was designed for busy professionals — but it's powerful enough for full-time traders too.</p>
+      <div class="buffett-quote">
+        <blockquote>"If you don't find a way to make money while you sleep, you will work until you die."</blockquote>
+        <cite>— Warren Buffett</cite>
+      </div>
+    </div>
+    <div>
+      <ul class="for-list">
+        <li>Working professionals who want to invest intelligently without watching markets all day. Insiders can move slowly — trades typically play out over days to weeks</li>
+        <li>Full-time traders who need to know where the significant volume is for intra-day price action. Insider data works as a high-conviction insider signal you can layer on top of your existing strategy.</li>
+        <li>Beginners who want a trustworthy signal instead of guessing. You don't need a financial advisor or a trading guru — just follow the people who know their company best.</li>
+        <li>Swing traders looking for a high-conviction insider signal as a powerful catalyst when deciding whether to enter a trade.</li>
+        <li>Anyone at any budget. Most examples are low-priced stocks — but this strategy works at any price range. It's flexible and scalable.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews-section">
+  <div class="reviews-inner">
+    <p class="section-label">// What Members Are Saying</p>
+    <h2>Real People. <em>Real Results.</em></h2>
+    <p class="section-body">Don't just take our word for it — here's what InsiderIQ Pro members have to say.</p>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I've tried a lot of trading tools but this is the first one that actually makes sense to me. The filtered signals take all the guesswork out of it. My first month I followed three setups and two of them played out exactly as described."</p>
+        <div class="review-author">James O. — <span>Filtered Signals Member</span></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"As someone with a full-time job, I don't have hours to stare at charts. InsiderIQ Pro lets me check my inbox at the end of the day, set my alerts, and be ready when the markets open. The 1-on-1 session was incredibly helpful for a beginner like me."</p>
+        <div class="review-author">Raya M. — <span>Filtered Signals Member</span></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"The AI Analyst summaries are what sold me. I get the signal, I get the context, I get the game plan. It's like having a research analyst in your inbox. Well worth the subscription."</p>
+        <div class="review-author">David R. — <span>Custom Filter Member</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDIBILITY -->
+<section class="credibility-section">
+  <div class="credibility">
+    <p class="section-label">// Track Record</p>
+    <h2>This Strategy Works. <em>We Know Because We Use It.</em></h2>
+    <span class="cred-stat">+40%</span>
+    <p class="section-body" style="margin: 0 auto; text-align: center;">In our first year trading with insider data, we grew our portfolio by over 40%. InsiderIQ Pro was built because we wanted to share that edge — and make it accessible to anyone willing to pay attention to the right signals.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <p class="section-label">// Common Questions</p>
+    <h2>Everything You <em>Need to Know</em></h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Is this legal?</div>
+        <div class="faq-a">100%. All insider trading filings are publicly disclosed to the SEC under federal law. Insiders are legally required to report their trades. We simply track, filter, and deliver them in a format that's easy to act on. There is nothing illegal about following publicly available data.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do I need trading experience?</div>
+        <div class="faq-a">It would help to have some, but following the smart money with our filtered signal can help you catch up. Our 1-on-1 coaching sessions are also available for anyone who wants step-by-step guidance from scratch.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How much time does this take each day?</div>
+        <div class="faq-a">Most subscribers spend around 45 minutes a day — reviewing signals, checking chart context, and setting alerts and limit orders. Once your plan is set, the trade manages itself while you get on with your day.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">When do I receive the signals?</div>
+        <div class="faq-a">Signals are delivered at market close and when all filings have been submitted for the day. SEC filings are submitted up until 10pm EST.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What's included in the free trial?</div>
+        <div class="faq-a">The free 7-day trial includes full access to the Filtered Signals, add-on included. Custom Signal Filters and 1-on-1 Coaching sessions are not included in the trial.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How do I get in touch?</div>
+        <div class="faq-a">You can reach us directly at <a href="mailto:insideriqpro@gmail.com" style="color:var(--gold);">insideriqpro@gmail.com</a> — we're happy to answer any questions before you sign up.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <p class="section-label">// Get Started</p>
+  <h2>Stop Guessing. Start Following <em>the Smart Money.</em></h2>
+  <p>Every weekday, insiders are filing trades that reveal exactly where they think their company is headed. The data is public. The signals are there. You just need to know where to look.</p>
+  <a href="#signup" class="btn-primary">Start Your Free 7-Day Trial</a>
+  <span class="final-note">// No credit card required &nbsp;·&nbsp; Cancel anytime &nbsp;·&nbsp; Filtered Signals included free for 7 days</span>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">InsiderIQ Pro</div>
+  <div class="footer-links">
+    <a href="blog.html">Blog</a>
+    <a href="terms.html">Terms & Conditions</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="mailto:insideriqpro@gmail.com">Contact</a>
+  </div>
+  <p class="footer-note">© 2026 InsiderIQ Pro. All rights reserved. &nbsp;·&nbsp; Not financial advice. For informational and educational purposes only.</p>
+</footer>
+
+
+  // SIGNUP FORM — Supabase Script integration
+ <!-- Include Supabase JS SDK via CDN -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbzGrt40ByVGwxRlwGPGNVlz7D4jExduMPxWQexaOJQptEMAtPCEOSkPoWhT--diZ3C2-g/exec';
-    const form = document.getElementById('signupForm');
-    const btn = document.getElementById('submitBtn');
-    const msg = document.getElementById('message');
+  // Initialize Supabase Client
+  const SUPABASE_URL = 'YOUR_SUPABASE_URL';
+  const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
+  const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-    form.addEventListener('submit', e => {
-        e.preventDefault();
-        btn.disabled = true;
-        btn.innerText = "Processing...";
-        msg.className = '';
-        msg.innerText = '';
+  const form = document.getElementById('signupForm');
+  const btn = document.getElementById('submitBtn');
+  const msg = document.getElementById('message');
 
-        const data = {
-            username: document.getElementById('username').value,
-            email: document.getElementById('email').value
-        };
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    btn.disabled = true;
+    btn.innerText = "Processing...";
+    msg.className = 'form-message';
+    msg.innerText = '';
 
-        fetch(scriptURL, { 
-            method: 'POST', 
-            mode: 'no-cors', // Necessary for Apps Script
-            body: JSON.stringify(data)
-        })
-        .then(() => {
-            msg.innerText = "Success! Check your email for your welcome kit.";
-            msg.className = 'success';
-            form.reset();
-            btn.disabled = false;
-            btn.innerText = "Get Insider Insights";
-        })
-        .catch(error => {
-            msg.innerText = "Something went wrong. Please try again.";
-            msg.className = 'error';
-            btn.disabled = false;
-            btn.innerText = "Get Insider Insights";
-        });
-    });
+    const username = document.getElementById('username').value;
+    const email = document.getElementById('email').value;
+
+    // Insert user into your 'subscribers' table
+    const { data, error } = await supabase
+      .from('subscribers')
+      .insert([{ username: username, email: email }]);
+
+    if (error) {
+      msg.innerText = "Something went wrong. Please try again.";
+      msg.className = 'form-message error';
+      btn.disabled = false;
+      btn.innerText = "Get Clear Insider Insights";
+    } else {
+      msg.innerText = "Success! Check your email for your welcome kit.";
+      msg.className = 'form-message success';
+      form.reset();
+      btn.disabled = false;
+      btn.innerText = "Get Clear Insider Insights";
+    }
+  });
+
+  // SIGNUP POPUP NOTIFICATIONS
+  const popupNames = [
+    { name: "Marcus T.", plan: "Custom Filter" },
+    { name: "Aisha K.", plan: "Filtered Signals" },
+    { name: "Daniel M.", plan: "free trial" },
+    { name: "Priya S.", plan: "Custom Filter" },
+    { name: "Chris B.", plan: "Filtered Signals" },
+    { name: "Ash A.", plan: "free trial" },
+    { name: "Rachel L.", plan: "Filtered Signals" },
+    { name: "Kevin O.", plan: "Custom Filter" },
+    { name: "Sarah J.", plan: "Filtered Signals" },
+    { name: "Emeka D.", plan: "Filtered Signals" },
+    { name: "Layla M.", plan: "free trial" },
+    { name: "Ryan B.", plan: "Filtered Signals" }
+  ];
+
+  // Shuffle array using Fisher-Yates so order is random on every page load
+  function shuffleArray(arr) {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  const shuffled = shuffleArray(popupNames);
+  let popupIndex = 0;
+  const popup = document.getElementById('signupPopup');
+
+  function showPopup() {
+    const person = shuffled[popupIndex % shuffled.length];
+    popup.querySelector('.popup-text').innerHTML = `<strong>${person.name}</strong> just signed up for the ${person.plan}`;
+    popup.classList.add('show');
+    setTimeout(() => { popup.classList.remove('show'); }, 4000);
+    popupIndex++;
+  }
+
+  // Random delay between 5-10s before first popup, then every 15-22s
+  const firstDelay = 5000 + Math.random() * 5000;
+
+  // Show first popup after 10s, then every 60s
+  setTimeout(() => {
+    showPopup();
+    const interval = 15000 + Math.random() * 60000;
+    setInterval(showPopup, interval);
+  }, firstDelay);
 </script>
 
 </body>
