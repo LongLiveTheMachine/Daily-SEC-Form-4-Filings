@@ -667,7 +667,7 @@
   // Initialize Supabase Client
   const SUPABASE_URL = 'https://kttsoujzgnsfjslovzcb.supabase.co';
   const SUPABASE_ANON_KEY = 'sb_publishable_h0Fx_1kdNib8AxaWcvLUgA_izSQ5OHr';
-  const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  const supabaseService = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
   const form = document.getElementById('signupForm');
   const btn = document.getElementById('submitBtn');
@@ -684,7 +684,7 @@
     const email = document.getElementById('email').value;
 
     // Insert user into your 'subscribers' table
-    const { data, error } = await supabase
+    const { data, error } = await supabaseService
       .from('subscribers')
       .insert([{ username: username, email: email }]);
 
