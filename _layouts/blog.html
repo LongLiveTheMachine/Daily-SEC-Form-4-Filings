@@ -51,7 +51,19 @@ layout: default
 <div class="page-content">
   <p class="page-label">// InsiderIQ Pro</p>
   <h1>Latest <em>Insights</em></h1>
-  <div class="page-body">Content coming soon.</div>
+  <div class="page-body"<p>Total posts: {{ site.posts | size }}</p>
+
+    {% for post in site.posts %}
+    <article class="post-card">
+      <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+      <p class="post-date">{{ post.date | date: "%B %d, %Y" }}</p>
+      <p class="post-excerpt">{{ post.excerpt }}</p>
+    </article>
+    {% endfor %}
+
+    {{ content }}
+  </div>
+</div>
 </div>
 <footer>© 2026 InsiderIQ Pro. All rights reserved.</footer>
 </body>
