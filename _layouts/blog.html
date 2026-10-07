@@ -1,24 +1,5 @@
 ---
-layout: default
 ---
-
-<div class="blog-container">
-  <h1>{{ page.title }}</h1>
-  <p>Total posts: {{ site.posts | size }}</p>
-
-  <div class="posts-list">
-    {% for post in site.posts %}
-    <article class="post-card">
-      <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-      <p class="post-date">{{ post.date | date: "%B %d, %Y" }}</p>
-      <p class="post-excerpt">{{ post.excerpt }}</p>
-    </article>
-    {% endfor %}
-  </div>
-
-  {{ content }}
-</div>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
