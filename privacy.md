@@ -5,7 +5,7 @@ permalink: /privacy/
 nav: privacy
 ---
 
-Last Updated: 20th November 2025
+Last Updated: 08th October 2026
 
 Your privacy is important to us. It is InsiderIQPro's policy to respect your privacy regarding any information we may collect from you across our website, https://insideriqpro.com (the "Service"), and other sites we own and operate.
 
