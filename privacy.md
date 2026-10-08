@@ -13,9 +13,9 @@ Your privacy is important to us. It is InsiderIQPro's policy to respect your pri
 
 We only ask for personal information when we truly need it to provide a specific service to you. This might include:
 
-    Account-Related Information: If you create a user account, we may collect information such as your name, email address, and payment information (if applicable, though payment processing is typically handled by third parties).
+Account-Related Information: If you create a user account, we may collect information such as your name, email address, and payment information (if applicable, though payment processing is typically handled by third parties).
 
-    Communication Data: Information you voluntarily provide when contacting us via email or other channels.
+Communication Data: Information you voluntarily provide when contacting us via email or other channels.
 
 We collect this data by fair and lawful means, with your knowledge and consent. We also let you know why we’re collecting it and how it will be used.
 
@@ -31,11 +31,11 @@ We only retain collected information for as long as necessary to provide you wit
 
 We do not share any personally identifying information publicly or with third parties, except:
 
-    When required to by law (e.g., subpoena or court order).
+When required to by law (e.g., subpoena or court order).
 
-    To protect the rights and property of InsiderIQPro.
+To protect the rights and property of InsiderIQPro.
 
-    With third-party service providers (like analytics or hosting providers) who require the information to perform their services for us and who are bound by confidentiality agreements.
+With third-party service providers (like analytics or hosting providers) who require the information to perform their services for us and who are bound by confidentiality agreements.
 
 ## 5. Cookies and Advertising
 
@@ -43,11 +43,11 @@ Our website uses cookies (small text files placed on your device) to help us ana
 
 Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to our website or other websites.
 
-    Google’s use of advertising cookies enables it and its partners to serve ads to our users based on their visit to our sites and/or other sites on the Internet.
+Google’s use of advertising cookies enables it and its partners to serve ads to our users based on their visit to our sites and/or other sites on the Internet.
 
-    Users may opt out of Google’s personalised advertising by visiting Ads Settings.
+Users may opt out of Google’s personalised advertising by visiting Ads Settings.
 
-    Users may also opt out of a third-party vendor's use of cookies for personalised advertising by visiting www.aboutads.info.
+Users may also opt out of a third-party vendor's use of cookies for personalised advertising by visiting www.aboutads.info.
 
 You have the ability to accept or decline cookies. Most web browsers automatically accept cookies, but you can usually modify your browser setting to decline cookies if you prefer. However, this may prevent you from taking full advantage of the website.
 
