@@ -23,6 +23,16 @@
   .page-body{font-size:1rem;color:#c8c8bc;line-height:1.8;font-weight:300;margin-top:2rem;}
   footer{padding:2rem 3rem;border-top:1px solid var(--border);text-align:center;font-size:0.75rem;color:#6a6a75;margin-top:6rem;}
 </style>
+  <!-- Canonical URL Tag -->
+  <link rel="canonical" href="{{ page.url | absolute_url }}" />
+
+  <!-- Schema.org JSON-LD Markup -->
+  {% if page.schema_json %}
+  <script type="application/ld+json">
+    {{ page.schema_json }}
+  </script>
+  {% endif %}
+</head>
 </head>
 <body>
 <header>
