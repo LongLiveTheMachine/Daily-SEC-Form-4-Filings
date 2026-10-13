@@ -2,6 +2,27 @@ import { createClient } from '@supabase/supabase-js';
 import fs from 'fs';
 
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_ANON_KEY);
+// Build the JSON-LD object dynamically in JS
+const schemaData = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": pageTitle,
+  "description": metaDescription,
+  "url": `https://yourdomain.com/${fileName.replace('./', '')}`,
+  "keywords": ["insider trading", "SEC Form 4", "insider buying", "stock market", "C-suite trades"],
+  "variableMeasured": "Total Invested Value, Shares Bought, Weighted Average Price"
+});
+
+// Pass it into the Jekyll Front Matter
+const pageContent = `---
+layout: default
+title: "${pageTitle}"
+description: "${metaDescription}"
+schema_json: '${schemaData}'
+---
+
+<!-- Rest of your page content, style blocks, and HTML tables -->
+`;
 
 async function generateJekyllPage({ viewName, fileName, pageTitle, metaDescription, activeNav }) {
   const { data, error } = await supabase.from(viewName).select('*');
