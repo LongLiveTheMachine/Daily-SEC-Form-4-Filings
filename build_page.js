@@ -2,41 +2,26 @@ import { createClient } from '@supabase/supabase-js';
 import fs from 'fs';
 
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_ANON_KEY);
-// Build the JSON-LD object dynamically in JS
-const schemaData = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Dataset",
-  "name": pageTitle,
-  "description": metaDescription,
-  "url": `https://yourdomain.com/${fileName.replace('./', '')}`,
-  "keywords": ["insider trading", "SEC Form 4", "insider buying", "stock market", "C-suite trades"],
-  "variableMeasured": "Total Invested Value, Shares Bought, Weighted Average Price"
-});
 
-// Pass it into the Jekyll Front Matter
-const pageContent = `---
-layout: default
-title: "${pageTitle}"
-description: "${metaDescription}"
-schema_json: '${schemaData}'
----
-
-<!-- Rest of your page content, style blocks, and HTML tables -->
-`;
-
+/**
+ * Generates a Jekyll-compatible HTML page for a given Supabase View.
+ */
 async function generateJekyllPage({ viewName, fileName, pageTitle, metaDescription, activeNav }) {
+  console.log(`Fetching data from Supabase view: ${viewName}...`);
+
   const { data, error } = await supabase.from(viewName).select('*');
   if (error) {
     console.error(`Error fetching ${viewName}:`, error);
     return;
   }
 
+  // 1. Format table rows from dataset
   const rows = (data || []).map((row, idx) => `
     <tr>
       <td>${idx + 1}</td>
       <td><strong><a href="https://finance.yahoo.com/quote/${row.ticker_symbol}" target="_blank" rel="noopener">${row.ticker_symbol}</a></strong></td>
       <td>${row.company_name || 'N/A'}</td>
-      <td data-order="${row.total_value_invested}">$${Number(row.total_value_invested).toLocaleString('en-US', {maximumFractionDigits: 0})}</td>
+      <td data-order="${row.total_value_invested}">$${Number(row.total_value_invested).toLocaleString('en-US', { maximumFractionDigits: 0 })}</td>
       <td data-order="${row.total_shares_bought}">${Number(row.total_shares_bought).toLocaleString('en-US')}</td>
       <td>$${Number(row.weighted_avg_price).toFixed(2)}</td>
       <td>${row.num_unique_insiders}</td>
@@ -44,14 +29,27 @@ async function generateJekyllPage({ viewName, fileName, pageTitle, metaDescripti
     </tr>
   `).join('');
 
-  // Jekyll Front Matter at the top + your existing layout name
+  // 2. Build Schema.org JSON-LD Structured Data dynamically INSIDE the function scope
+  const cleanFileName = fileName.replace('./', '');
+  const schemaData = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": pageTitle,
+    "description": metaDescription,
+    "url": `https://yourdomain.com/${cleanFileName}`,
+    "keywords": ["insider trading", "SEC Form 4", "insider buying", "stock market", "C-suite trades"],
+    "variableMeasured": "Total Invested Value, Shares Bought, Weighted Average Price"
+  });
+
+  // 3. Assemble Jekyll Front Matter (with schema_json) and Page HTML
   const pageContent = `---
 layout: default
 title: "${pageTitle}"
 description: "${metaDescription}"
+schema_json: '${schemaData}'
 ---
 
-<!-- DataTables CSS for sorting/filtering -->
+<!-- DataTables CSS for sorting & filtering -->
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
 
 <style>
@@ -95,7 +93,7 @@ description: "${metaDescription}"
   $(document).ready(function() {
     $('#insiderTable').DataTable({
       pageLength: 25,
-      order: [[3, 'desc']], // Sort by Total Invested descending by default
+      order: [[3, 'desc']], // Default sort by Total Invested ($) descending
       responsive: true
     });
   });
@@ -103,10 +101,10 @@ description: "${metaDescription}"
 `;
 
   fs.writeFileSync(fileName, pageContent);
-  console.log(`Successfully generated ${fileName} for Jekyll`);
+  console.log(`✅ Successfully generated ${fileName} for Jekyll`);
 }
 
-// Generate the pages
+// 4. Main Build Runner
 async function buildAll() {
   await generateJekyllPage({
     viewName: 'top_buys_weekly',
@@ -116,7 +114,10 @@ async function buildAll() {
     activeNav: 'week'
   });
 
-  // You can call additional views (Daily, Monthly, Yearly) here
+  // You can add Daily, Monthly, and Yearly calls here once views are ready
 }
 
-buildAll();
+buildAll().catch((err) => {
+  console.error("Fatal build error:", err);
+  process.exit(1);
+});
