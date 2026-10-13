@@ -18,7 +18,10 @@ jobs:
           node-version: '18'
 
       - name: Install Dependencies
-        run: npm install @supabase/supabase-js
+        run: |
+          npm init -y
+          npm pkg set type="module"
+          npm install @supabase/supabase-js
 
       - name: Generate HTML Pages
         env:
