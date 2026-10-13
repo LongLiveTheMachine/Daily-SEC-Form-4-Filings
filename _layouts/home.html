@@ -665,8 +665,8 @@
 
 <script>
   // Initialize Supabase Client
-  const SUPABASE_URL = 'https://kttsoujzgnsfjslovzcb.supabase.co';
-  const SUPABASE_ANON_KEY = 'sb_publishable_h0Fx_1kdNib8AxaWcvLUgA_izSQ5OHr';
+  const SUPABASE_URL = SUPABASE_URL;
+  const SUPABASE_ANON_KEY = SUPABASE_ANON_KEY;
   const supabaseService = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
   const form = document.getElementById('signupForm');
@@ -706,15 +706,15 @@
   const popupNames = [
     { name: "Marcus T.", plan: "Custom Filter" },
     { name: "Aisha K.", plan: "Filtered Signals" },
-    { name: "Daniel M.", plan: "free trial" },
+    { name: "Daniel M.", plan: "Free trial" },
     { name: "Priya S.", plan: "Custom Filter" },
-    { name: "Chris B.", plan: "Filtered Signals" },
-    { name: "Ash A.", plan: "free trial" },
+    { name: "Chris A.", plan: "Filtered Signals" },
+    { name: "Ash A.", plan: "Free trial" },
     { name: "Rachel L.", plan: "Filtered Signals" },
     { name: "Kevin O.", plan: "Custom Filter" },
     { name: "Sarah J.", plan: "Filtered Signals" },
     { name: "Emeka D.", plan: "Filtered Signals" },
-    { name: "Layla M.", plan: "free trial" },
+    { name: "Layla M.", plan: "Free trial" },
     { name: "Ryan B.", plan: "Filtered Signals" }
   ];
 
@@ -746,7 +746,7 @@
   // Show first popup after 10s, then every 60s
   setTimeout(() => {
     showPopup();
-    const interval = 15000 + Math.random() * 60000;
+    const interval = 15000 + Math.random() * 80000;
     setInterval(showPopup, interval);
   }, firstDelay);
 </script>
