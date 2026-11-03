@@ -1,0 +1,1156 @@
+---
+layout: default
+title: "Top 100 Most Bought Stocks by Insiders in 2026 (YTD)"
+description: "Discover the top 100 stocks with the highest cumulative insider buying activity year-to-Date (YTD) in 2026 based on SEC Form 4 filings."
+schema_json: '{"@context":"https://schema.org","@type":"Dataset","name":"Top 100 Most Bought Stocks by Insiders in 2026 (YTD)","description":"Discover the top 100 stocks with the highest cumulative insider buying activity year-to-Date (YTD) in 2026 based on SEC Form 4 filings.","url":"https://yourdomain.com/top-bought-this-year.html","keywords":["insider trading","SEC Form 4","insider buying","stock market","C-suite trades"],"variableMeasured":"Total Invested Value, Shares Bought, Weighted Average Price"}'
+---
+
+<!-- DataTables CSS for sorting & filtering -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+
+<style>
+  .badge-ceo { background: #e6f4ea; color: #137333; font-weight: 600; padding: 2px 8px; border-radius: 12px; }
+  .insider-nav { margin-bottom: 20px; display: flex; gap: 10px; flex-wrap: wrap; }
+  .insider-nav a { text-decoration: none; padding: 8px 14px; background: #f0f0f0; border-radius: 6px; color: #333; font-weight: 500; }
+  .insider-nav a.active { background: #0052cc; color: #fff; }
+</style>
+
+<div class="insider-nav">
+  <a href="./top-bought-today.html" class="">Today</a>
+  <a href="./top-bought-this-week.html" class="">This Week</a>
+  <a href="./top-bought-this-month.html" class="">This Month</a>
+  <a href="./top-bought-this-year.html" class="active">This Year</a>
+</div>
+
+<h1>Top 100 Most Bought Stocks by Insiders in 2026 (YTD)</h1>
+<p>Aggregated open-market insider purchases from SEC Form 4 filings.</p>
+
+<table id="insiderTable" class="display" style="width:100%">
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th>Ticker</th>
+      <th>Company</th>
+      <th>Total Invested ($)</th>
+      <th>Shares Bought</th>
+      <th>Avg Price</th>
+      <th>Unique Insiders</th>
+      <th>C-Suite Activity</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/slbt" target="_blank" rel="noopener">slbt</a></strong></td>
+      <td>sl science holding ltd</td>
+      <td data-order="10329903316818">$10,329,903,316,818</td>
+      <td data-order="4545306">4,545,306</td>
+      <td>$2272653.00</td>
+      <td>1</td>
+      <td><span class="badge-ceo">Yes (1)</span></td>
+    </tr>
+  
+    <tr>
+      <td>2</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/svre" target="_blank" rel="noopener">svre</a></strong></td>
+      <td>saverone 2014 ltd.</td>
+      <td data-order="53919360576">$53,919,360,576</td>
+      <td data-order="14965632000">14,965,632,000</td>
+      <td>$3.60</td>
+      <td>1</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>3</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/rebn" target="_blank" rel="noopener">rebn</a></strong></td>
+      <td>reborn coffee, inc.</td>
+      <td data-order="23649660000">$23,649,660,000</td>
+      <td data-order="131387">131,387</td>
+      <td>$180000.00</td>
+      <td>1</td>
+      <td><span class="badge-ceo">Yes (1)</span></td>
+    </tr>
+  
+    <tr>
+      <td>4</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/lona" target="_blank" rel="noopener">lona</a></strong></td>
+      <td>leonabio, inc.</td>
+      <td data-order="9919161280.9">$9,919,161,281</td>
+      <td data-order="3149470">3,149,470</td>
+      <td>$3149.47</td>
+      <td>1</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>5</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/rsg" target="_blank" rel="noopener">rsg</a></strong></td>
+      <td>republic services, inc.</td>
+      <td data-order="1582688912.2451">$1,582,688,912</td>
+      <td data-order="7241612">7,241,612</td>
+      <td>$218.55</td>
+      <td>1</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>6</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/jef" target="_blank" rel="noopener">jef</a></strong></td>
+      <td>jefferies financial group inc.</td>
+      <td data-order="1257479272.92">$1,257,479,273</td>
+      <td data-order="24671758">24,671,758</td>
+      <td>$50.97</td>
+      <td>1</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>7</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/rivn" target="_blank" rel="noopener">rivn</a></strong></td>
+      <td>rivian automotive, inc. / de</td>
+      <td data-order="1000194859.8">$1,000,194,860</td>
+      <td data-order="62907522">62,907,522</td>
+      <td>$15.90</td>
+      <td>2</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>8</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/nmm" target="_blank" rel="noopener">nmm</a></strong></td>
+      <td>navios maritime partners l.p.</td>
+      <td data-order="853513112.8764">$853,513,113</td>
+      <td data-order="102124">102,124</td>
+      <td>$8357.62</td>
+      <td>1</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>9</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/len" target="_blank" rel="noopener">len</a></strong></td>
+      <td>lennar corp /new/</td>
+      <td data-order="765799620.38">$765,799,620</td>
+      <td data-order="9517494">9,517,494</td>
+      <td>$80.46</td>
+      <td>1</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>10</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/wrb" target="_blank" rel="noopener">wrb</a></strong></td>
+      <td>berkley w r corp</td>
+      <td data-order="570190854.7573">$570,190,855</td>
+      <td data-order="8253939">8,253,939</td>
+      <td>$69.08</td>
+      <td>1</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>11</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/pbls" target="_blank" rel="noopener">pbls</a></strong></td>
+      <td>parabilis medicines, inc.</td>
+      <td data-order="441418079.8055">$441,418,080</td>
+      <td data-order="21963343">21,963,343</td>
+      <td>$20.10</td>
+      <td>3</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>12</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/len, len.b" target="_blank" rel="noopener">len, len.b</a></strong></td>
+      <td>lennar corp /new/</td>
+      <td data-order="424790302.84">$424,790,303</td>
+      <td data-order="5487058">5,487,058</td>
+      <td>$77.42</td>
+      <td>1</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>13</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/bxdc" target="_blank" rel="noopener">bxdc</a></strong></td>
+      <td>blackstone digital infrastructure trust inc.</td>
+      <td data-order="380981800">$380,981,800</td>
+      <td data-order="19049090">19,049,090</td>
+      <td>$20.00</td>
+      <td>8</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>14</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/crbg" target="_blank" rel="noopener">crbg</a></strong></td>
+      <td>corebridge financial, inc.</td>
+      <td data-order="348287949.4033">$348,287,949</td>
+      <td data-order="10126562">10,126,562</td>
+      <td>$34.39</td>
+      <td>1</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>15</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/klra" target="_blank" rel="noopener">klra</a></strong></td>
+      <td>kailera therapeutics, inc.</td>
+      <td data-order="326750016">$326,750,016</td>
+      <td data-order="20421876">20,421,876</td>
+      <td>$16.00</td>
+      <td>5</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>16</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/psus" target="_blank" rel="noopener">psus</a></strong></td>
+      <td>pershing square usa, ltd.</td>
+      <td data-order="321452838.2343">$321,452,838</td>
+      <td data-order="6576961">6,576,961</td>
+      <td>$48.88</td>
+      <td>9</td>
+      <td><span class="badge-ceo">Yes (8)</span></td>
+    </tr>
+  
+    <tr>
+      <td>17</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/coe" target="_blank" rel="noopener">coe</a></strong></td>
+      <td>51talk online education group</td>
+      <td data-order="261503568.6">$261,503,569</td>
+      <td data-order="14970000">14,970,000</td>
+      <td>$17.47</td>
+      <td>1</td>
+      <td><span class="badge-ceo">Yes (124)</span></td>
+    </tr>
+  
+    <tr>
+      <td>18</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/sgp" target="_blank" rel="noopener">sgp</a></strong></td>
+      <td>spyglass pharma, inc.</td>
+      <td data-order="221480000">$221,480,000</td>
+      <td data-order="13842500">13,842,500</td>
+      <td>$16.00</td>
+      <td>15</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>19</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/mair" target="_blank" rel="noopener">mair</a></strong></td>
+      <td>madison air solutions corp</td>
+      <td data-order="219556784.28">$219,556,784</td>
+      <td data-order="8790524">8,790,524</td>
+      <td>$24.98</td>
+      <td>2</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>20</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/gpi" target="_blank" rel="noopener">gpi</a></strong></td>
+      <td>group 1 automotive inc</td>
+      <td data-order="211497026.3601">$211,497,026</td>
+      <td data-order="820030">820,030</td>
+      <td>$257.91</td>
+      <td>1</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>21</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/none" target="_blank" rel="noopener">none</a></strong></td>
+      <td>wilson bank holding co</td>
+      <td data-order="193577717.9390651">$193,577,718</td>
+      <td data-order="14838915.713">14,838,915.713</td>
+      <td>$13.05</td>
+      <td>18</td>
+      <td><span class="badge-ceo">Yes (4)</span></td>
+    </tr>
+  
+    <tr>
+      <td>22</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/brve" target="_blank" rel="noopener">brve</a></strong></td>
+      <td>braveheart bio, inc.</td>
+      <td data-order="159034950">$159,034,950</td>
+      <td data-order="8835275">8,835,275</td>
+      <td>$18.00</td>
+      <td>10</td>
+      <td><span class="badge-ceo">Yes (2)</span></td>
+    </tr>
+  
+    <tr>
+      <td>23</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/kod" target="_blank" rel="noopener">kod</a></strong></td>
+      <td>kodiak sciences inc.</td>
+      <td data-order="156986393.7365">$156,986,394</td>
+      <td data-order="1941755">1,941,755</td>
+      <td>$80.85</td>
+      <td>1</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>24</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/ttd" target="_blank" rel="noopener">ttd</a></strong></td>
+      <td>trade desk, inc.</td>
+      <td data-order="148101266.36">$148,101,266</td>
+      <td data-order="6000000">6,000,000</td>
+      <td>$24.68</td>
+      <td>1</td>
+      <td><span class="badge-ceo">Yes (4)</span></td>
+    </tr>
+  
+    <tr>
+      <td>25</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/ua" target="_blank" rel="noopener">ua</a></strong></td>
+      <td>under armour, inc.</td>
+      <td data-order="144098818.4542">$144,098,818</td>
+      <td data-order="24872088">24,872,088</td>
+      <td>$5.79</td>
+      <td>2</td>
+      <td><span class="badge-ceo">Yes (1)</span></td>
+    </tr>
+  
+    <tr>
+      <td>26</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/safx" target="_blank" rel="noopener">safx</a></strong></td>
+      <td>xcf global, inc.</td>
+      <td data-order="142083450.544">$142,083,451</td>
+      <td data-order="119397857.6">119,397,857.6</td>
+      <td>$1.19</td>
+      <td>1</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>27</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/alkt" target="_blank" rel="noopener">alkt</a></strong></td>
+      <td>alkami technology, inc.</td>
+      <td data-order="135189347.36">$135,189,347</td>
+      <td data-order="8083086">8,083,086</td>
+      <td>$16.72</td>
+      <td>2</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>28</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/lila" target="_blank" rel="noopener">lila</a></strong></td>
+      <td>liberty latin america ltd.</td>
+      <td data-order="122639104.8481">$122,639,105</td>
+      <td data-order="15078373">15,078,373</td>
+      <td>$8.13</td>
+      <td>3</td>
+      <td><span class="badge-ceo">Yes (2)</span></td>
+    </tr>
+  
+    <tr>
+      <td>29</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/gme" target="_blank" rel="noopener">gme</a></strong></td>
+      <td>gamestop corp.</td>
+      <td data-order="121162888.56">$121,162,889</td>
+      <td data-order="5272027">5,272,027</td>
+      <td>$22.98</td>
+      <td>5</td>
+      <td><span class="badge-ceo">Yes (9)</span></td>
+    </tr>
+  
+    <tr>
+      <td>30</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/apcx" target="_blank" rel="noopener">apcx</a></strong></td>
+      <td>apptech payments corp.</td>
+      <td data-order="116305165.901">$116,305,166</td>
+      <td data-order="1122926">1,122,926</td>
+      <td>$103.57</td>
+      <td>4</td>
+      <td><span class="badge-ceo">Yes (5)</span></td>
+    </tr>
+  
+    <tr>
+      <td>31</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/akts" target="_blank" rel="noopener">akts</a></strong></td>
+      <td>aktis oncology, inc.</td>
+      <td data-order="114311628">$114,311,628</td>
+      <td data-order="6350646">6,350,646</td>
+      <td>$18.00</td>
+      <td>6</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>32</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/artv" target="_blank" rel="noopener">artv</a></strong></td>
+      <td>artiva biotherapeutics, inc.</td>
+      <td data-order="109120138.26">$109,120,138</td>
+      <td data-order="10068312">10,068,312</td>
+      <td>$10.84</td>
+      <td>2</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>33</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/wgs" target="_blank" rel="noopener">wgs</a></strong></td>
+      <td>genedx holdings corp.</td>
+      <td data-order="106601463.94">$106,601,464</td>
+      <td data-order="2425941">2,425,941</td>
+      <td>$43.94</td>
+      <td>2</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>34</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/smmt" target="_blank" rel="noopener">smmt</a></strong></td>
+      <td>summit therapeutics inc.</td>
+      <td data-order="103616650">$103,616,650</td>
+      <td data-order="7870000">7,870,000</td>
+      <td>$13.17</td>
+      <td>3</td>
+      <td><span class="badge-ceo">Yes (6)</span></td>
+    </tr>
+  
+    <tr>
+      <td>35</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/rol" target="_blank" rel="noopener">rol</a></strong></td>
+      <td>rollins inc</td>
+      <td data-order="99913330.6656">$99,913,331</td>
+      <td data-order="2888804">2,888,804</td>
+      <td>$34.59</td>
+      <td>2</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>36</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/uuu" target="_blank" rel="noopener">uuu</a></strong></td>
+      <td>universal safety products, inc.</td>
+      <td data-order="97331946.1341">$97,331,946</td>
+      <td data-order="873140">873,140</td>
+      <td>$111.47</td>
+      <td>1</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>37</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/kard" target="_blank" rel="noopener">kard</a></strong></td>
+      <td>kardigan, inc.</td>
+      <td data-order="90000000">$90,000,000</td>
+      <td data-order="5625000">5,625,000</td>
+      <td>$16.00</td>
+      <td>3</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>38</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/thm" target="_blank" rel="noopener">thm</a></strong></td>
+      <td>international tower hill mines ltd</td>
+      <td data-order="84905535.04">$84,905,535</td>
+      <td data-order="37487150">37,487,150</td>
+      <td>$2.26</td>
+      <td>3</td>
+      <td><span class="badge-ceo">Yes (2)</span></td>
+    </tr>
+  
+    <tr>
+      <td>39</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/dpc" target="_blank" rel="noopener">dpc</a></strong></td>
+      <td>dpc holdings ltd</td>
+      <td data-order="75821493">$75,821,493</td>
+      <td data-order="2297621">2,297,621</td>
+      <td>$33.00</td>
+      <td>9</td>
+      <td><span class="badge-ceo">Yes (3)</span></td>
+    </tr>
+  
+    <tr>
+      <td>40</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/odtx" target="_blank" rel="noopener">odtx</a></strong></td>
+      <td>odyssey therapeutics, inc.</td>
+      <td data-order="75319986">$75,319,986</td>
+      <td data-order="4183777">4,183,777</td>
+      <td>$18.00</td>
+      <td>7</td>
+      <td><span class="badge-ceo">Yes (1)</span></td>
+    </tr>
+  
+    <tr>
+      <td>41</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/mgm" target="_blank" rel="noopener">mgm</a></strong></td>
+      <td>mgm resorts international</td>
+      <td data-order="74447000">$74,447,000</td>
+      <td data-order="2000000">2,000,000</td>
+      <td>$37.22</td>
+      <td>1</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>42</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/brcb" target="_blank" rel="noopener">brcb</a></strong></td>
+      <td>black rock coffee bar, inc.</td>
+      <td data-order="73357953.87304">$73,357,954</td>
+      <td data-order="13698923.324">13,698,923.324</td>
+      <td>$5.36</td>
+      <td>4</td>
+      <td><span class="badge-ceo">Yes (3)</span></td>
+    </tr>
+  
+    <tr>
+      <td>43</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/sctx" target="_blank" rel="noopener">sctx</a></strong></td>
+      <td>scribe therapeutics, inc.</td>
+      <td data-order="71324751.25">$71,324,751</td>
+      <td data-order="4728904">4,728,904</td>
+      <td>$15.08</td>
+      <td>6</td>
+      <td><span class="badge-ceo">Yes (1)</span></td>
+    </tr>
+  
+    <tr>
+      <td>44</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/qvcg" target="_blank" rel="noopener">qvcg</a></strong></td>
+      <td>qvc group, inc.</td>
+      <td data-order="71260336.0132">$71,260,336</td>
+      <td data-order="4792097">4,792,097</td>
+      <td>$14.87</td>
+      <td>1</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>45</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/avo" target="_blank" rel="noopener">avo</a></strong></td>
+      <td>mission produce, inc.</td>
+      <td data-order="70804811.12">$70,804,811</td>
+      <td data-order="5701930">5,701,930</td>
+      <td>$12.42</td>
+      <td>4</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>46</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/borr" target="_blank" rel="noopener">borr</a></strong></td>
+      <td>borr drilling ltd</td>
+      <td data-order="69509882.5">$69,509,883</td>
+      <td data-order="16358500">16,358,500</td>
+      <td>$4.25</td>
+      <td>5</td>
+      <td><span class="badge-ceo">Yes (3)</span></td>
+    </tr>
+  
+    <tr>
+      <td>47</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/navn" target="_blank" rel="noopener">navn</a></strong></td>
+      <td>navan, inc.</td>
+      <td data-order="68312120.72">$68,312,121</td>
+      <td data-order="4193248">4,193,248</td>
+      <td>$16.29</td>
+      <td>5</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>48</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/atto" target="_blank" rel="noopener">atto</a></strong></td>
+      <td>attovia therapeutics, inc.</td>
+      <td data-order="67754979">$67,754,979</td>
+      <td data-order="3925587">3,925,587</td>
+      <td>$17.26</td>
+      <td>6</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>49</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/adrx" target="_blank" rel="noopener">adrx</a></strong></td>
+      <td>adarx pharmaceuticals, inc.</td>
+      <td data-order="67597610">$67,597,610</td>
+      <td data-order="3976330">3,976,330</td>
+      <td>$17.00</td>
+      <td>5</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>50</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/mlpt" target="_blank" rel="noopener">mlpt</a></strong></td>
+      <td>maplight therapeutics, inc.</td>
+      <td data-order="65386793.7675">$65,386,794</td>
+      <td data-order="5609225">5,609,225</td>
+      <td>$11.66</td>
+      <td>1</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>51</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/lfto" target="_blank" rel="noopener">lfto</a></strong></td>
+      <td>liftoff mobile, inc.</td>
+      <td data-order="59999962">$59,999,962</td>
+      <td data-order="2608694">2,608,694</td>
+      <td>$23.00</td>
+      <td>2</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>52</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/coag" target="_blank" rel="noopener">coag</a></strong></td>
+      <td>hemab therapeutics holdings, inc.</td>
+      <td data-order="55460170.87">$55,460,171</td>
+      <td data-order="2970541">2,970,541</td>
+      <td>$18.67</td>
+      <td>1</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>53</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/hood" target="_blank" rel="noopener">hood</a></strong></td>
+      <td>robinhood markets, inc.</td>
+      <td data-order="55306258.3">$55,306,258</td>
+      <td data-order="680000">680,000</td>
+      <td>$81.33</td>
+      <td>1</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>54</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/wve" target="_blank" rel="noopener">wve</a></strong></td>
+      <td>wave life sciences ltd.</td>
+      <td data-order="54624377.99">$54,624,378</td>
+      <td data-order="8772496">8,772,496</td>
+      <td>$6.23</td>
+      <td>1</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>55</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/cntm" target="_blank" rel="noopener">cntm</a></strong></td>
+      <td>connectm technology solutions, inc.</td>
+      <td data-order="53627275.2">$53,627,275</td>
+      <td data-order="10301">10,301</td>
+      <td>$5206.03</td>
+      <td>2</td>
+      <td><span class="badge-ceo">Yes (2)</span></td>
+    </tr>
+  
+    <tr>
+      <td>56</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/mane" target="_blank" rel="noopener">mane</a></strong></td>
+      <td>veradermics, inc</td>
+      <td data-order="53092457.61">$53,092,458</td>
+      <td data-order="2785614">2,785,614</td>
+      <td>$19.06</td>
+      <td>5</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>57</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/kkr" target="_blank" rel="noopener">kkr</a></strong></td>
+      <td>kkr & co. inc.</td>
+      <td data-order="50931132.3">$50,931,132</td>
+      <td data-order="516097">516,097</td>
+      <td>$98.69</td>
+      <td>5</td>
+      <td><span class="badge-ceo">Yes (9)</span></td>
+    </tr>
+  
+    <tr>
+      <td>58</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/hymc" target="_blank" rel="noopener">hymc</a></strong></td>
+      <td>hycroft mining holding corp</td>
+      <td data-order="50838825.1">$50,838,825</td>
+      <td data-order="1278000">1,278,000</td>
+      <td>$39.78</td>
+      <td>2</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>59</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/genb" target="_blank" rel="noopener">genb</a></strong></td>
+      <td>generate biomedicines, inc.</td>
+      <td data-order="50292800">$50,292,800</td>
+      <td data-order="3148300">3,148,300</td>
+      <td>$15.97</td>
+      <td>5</td>
+      <td><span class="badge-ceo">Yes (3)</span></td>
+    </tr>
+  
+    <tr>
+      <td>60</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/nasdaq:svc" target="_blank" rel="noopener">nasdaq:svc</a></strong></td>
+      <td>service properties trust</td>
+      <td data-order="50185999.2">$50,185,999</td>
+      <td data-order="41821666">41,821,666</td>
+      <td>$1.20</td>
+      <td>3</td>
+      <td><span class="badge-ceo">Yes (2)</span></td>
+    </tr>
+  
+    <tr>
+      <td>61</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/eikn" target="_blank" rel="noopener">eikn</a></strong></td>
+      <td>eikon therapeutics, inc.</td>
+      <td data-order="47150680.96">$47,150,681</td>
+      <td data-order="2651402">2,651,402</td>
+      <td>$17.78</td>
+      <td>5</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>62</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/gold" target="_blank" rel="noopener">gold</a></strong></td>
+      <td>gold.com, inc.</td>
+      <td data-order="43683297.594">$43,683,298</td>
+      <td data-order="1030338">1,030,338</td>
+      <td>$42.40</td>
+      <td>1</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>63</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/logc" target="_blank" rel="noopener">logc</a></strong></td>
+      <td>contextlogic holdings inc.</td>
+      <td data-order="40728569.1268">$40,728,569</td>
+      <td data-order="5704630">5,704,630</td>
+      <td>$7.14</td>
+      <td>5</td>
+      <td><span class="badge-ceo">Yes (1)</span></td>
+    </tr>
+  
+    <tr>
+      <td>64</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/avr" target="_blank" rel="noopener">avr</a></strong></td>
+      <td>anteris technologies global corp.</td>
+      <td data-order="40546741.69">$40,546,742</td>
+      <td data-order="6565730">6,565,730</td>
+      <td>$6.18</td>
+      <td>2</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>65</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/car" target="_blank" rel="noopener">car</a></strong></td>
+      <td>avis budget group, inc.</td>
+      <td data-order="40060075">$40,060,075</td>
+      <td data-order="425000">425,000</td>
+      <td>$94.26</td>
+      <td>1</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>66</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/lime" target="_blank" rel="noopener">lime</a></strong></td>
+      <td>neutron holdings, inc.</td>
+      <td data-order="40000000">$40,000,000</td>
+      <td data-order="1600000">1,600,000</td>
+      <td>$25.00</td>
+      <td>1</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>67</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/etra" target="_blank" rel="noopener">etra</a></strong></td>
+      <td>electra therapeutics, inc.</td>
+      <td data-order="39999990">$39,999,990</td>
+      <td data-order="2666666">2,666,666</td>
+      <td>$15.00</td>
+      <td>2</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>68</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/alms" target="_blank" rel="noopener">alms</a></strong></td>
+      <td>alumis inc.</td>
+      <td data-order="39267372.0551">$39,267,372</td>
+      <td data-order="2590178">2,590,178</td>
+      <td>$15.16</td>
+      <td>4</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>69</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/lyca" target="_blank" rel="noopener">lyca</a></strong></td>
+      <td>lycia therapeutics, inc.</td>
+      <td data-order="38298574.58">$38,298,575</td>
+      <td data-order="2070444">2,070,444</td>
+      <td>$18.50</td>
+      <td>1</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>70</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/aspe" target="_blank" rel="noopener">aspe</a></strong></td>
+      <td>aspen neuroscience, inc.</td>
+      <td data-order="37999995">$37,999,995</td>
+      <td data-order="2533333">2,533,333</td>
+      <td>$15.00</td>
+      <td>2</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>71</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/smc" target="_blank" rel="noopener">smc</a></strong></td>
+      <td>summit midstream corp</td>
+      <td data-order="37946131.44">$37,946,131</td>
+      <td data-order="1220918">1,220,918</td>
+      <td>$31.08</td>
+      <td>1</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>72</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/txo" target="_blank" rel="noopener">txo</a></strong></td>
+      <td>txo partners, l.p.</td>
+      <td data-order="36718747.757">$36,718,748</td>
+      <td data-order="2760000">2,760,000</td>
+      <td>$13.30</td>
+      <td>2</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>73</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/fig" target="_blank" rel="noopener">fig</a></strong></td>
+      <td>figma, inc.</td>
+      <td data-order="36537073.3205">$36,537,073</td>
+      <td data-order="1466852">1,466,852</td>
+      <td>$24.91</td>
+      <td>1</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>74</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/aat" target="_blank" rel="noopener">aat</a></strong></td>
+      <td>american assets trust, inc.</td>
+      <td data-order="36131599.26">$36,131,599</td>
+      <td data-order="1658317">1,658,317</td>
+      <td>$21.79</td>
+      <td>1</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>75</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/asa" target="_blank" rel="noopener">asa</a></strong></td>
+      <td>asa gold & precious metals ltd</td>
+      <td data-order="35463315.1">$35,463,315</td>
+      <td data-order="511988">511,988</td>
+      <td>$69.27</td>
+      <td>1</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>76</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/ggr" target="_blank" rel="noopener">ggr</a></strong></td>
+      <td>gogoro inc.</td>
+      <td data-order="35114297.68">$35,114,298</td>
+      <td data-order="14158991">14,158,991</td>
+      <td>$2.48</td>
+      <td>1</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>77</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/axia3" target="_blank" rel="noopener">axia3</a></strong></td>
+      <td>axia energia s.a.</td>
+      <td data-order="34613919">$34,613,919</td>
+      <td data-order="3233100">3,233,100</td>
+      <td>$10.71</td>
+      <td>3</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>78</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/ftk" target="_blank" rel="noopener">ftk</a></strong></td>
+      <td>flotek industries inc/cn/</td>
+      <td data-order="34320012.93">$34,320,013</td>
+      <td data-order="1319493">1,319,493</td>
+      <td>$26.01</td>
+      <td>1</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>79</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/bpre" target="_blank" rel="noopener">bpre</a></strong></td>
+      <td>bluerock private real estate fund</td>
+      <td data-order="33475564.8462">$33,475,565</td>
+      <td data-order="2638178">2,638,178</td>
+      <td>$12.69</td>
+      <td>3</td>
+      <td><span class="badge-ceo">Yes (4)</span></td>
+    </tr>
+  
+    <tr>
+      <td>80</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/four" target="_blank" rel="noopener">four</a></strong></td>
+      <td>shift4 payments, inc.</td>
+      <td data-order="31604310.0022">$31,604,310</td>
+      <td data-order="730430">730,430</td>
+      <td>$43.27</td>
+      <td>1</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>81</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/pamt" target="_blank" rel="noopener">pamt</a></strong></td>
+      <td>pamt corp</td>
+      <td data-order="31225740">$31,225,740</td>
+      <td data-order="3268000">3,268,000</td>
+      <td>$9.56</td>
+      <td>1</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>82</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/sono" target="_blank" rel="noopener">sono</a></strong></td>
+      <td>sonos inc</td>
+      <td data-order="30877641.83">$30,877,642</td>
+      <td data-order="1991612">1,991,612</td>
+      <td>$15.50</td>
+      <td>2</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>83</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/par" target="_blank" rel="noopener">par</a></strong></td>
+      <td>par technology corp</td>
+      <td data-order="30829954.5196">$30,829,955</td>
+      <td data-order="1587017.83">1,587,017.83</td>
+      <td>$19.43</td>
+      <td>3</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>84</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/grab" target="_blank" rel="noopener">grab</a></strong></td>
+      <td>grab holdings ltd</td>
+      <td data-order="30743148.6456">$30,743,149</td>
+      <td data-order="10649571">10,649,571</td>
+      <td>$2.89</td>
+      <td>2</td>
+      <td><span class="badge-ceo">Yes (2)</span></td>
+    </tr>
+  
+    <tr>
+      <td>85</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/fbin" target="_blank" rel="noopener">fbin</a></strong></td>
+      <td>fortune brands innovations, inc.</td>
+      <td data-order="30669300.1485">$30,669,300</td>
+      <td data-order="825652">825,652</td>
+      <td>$37.15</td>
+      <td>2</td>
+      <td><span class="badge-ceo">Yes (3)</span></td>
+    </tr>
+  
+    <tr>
+      <td>86</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/meso" target="_blank" rel="noopener">meso</a></strong></td>
+      <td>mesoblast ltd</td>
+      <td data-order="30008170.12">$30,008,170</td>
+      <td data-order="15666924">15,666,924</td>
+      <td>$1.92</td>
+      <td>1</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>87</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/qttb" target="_blank" rel="noopener">qttb</a></strong></td>
+      <td>q32 bio inc.</td>
+      <td data-order="30000000">$30,000,000</td>
+      <td data-order="3750000">3,750,000</td>
+      <td>$8.00</td>
+      <td>2</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>88</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/gsat" target="_blank" rel="noopener">gsat</a></strong></td>
+      <td>globalstar, inc.</td>
+      <td data-order="29839232">$29,839,232</td>
+      <td data-order="361600">361,600</td>
+      <td>$82.52</td>
+      <td>1</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>89</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/pnaq" target="_blank" rel="noopener">pnaq</a></strong></td>
+      <td>pinnacle acquisition corp</td>
+      <td data-order="29800000">$29,800,000</td>
+      <td data-order="2980000">2,980,000</td>
+      <td>$10.00</td>
+      <td>6</td>
+      <td><span class="badge-ceo">Yes (2)</span></td>
+    </tr>
+  
+    <tr>
+      <td>90</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/nclh" target="_blank" rel="noopener">nclh</a></strong></td>
+      <td>norwegian cruise line holdings ltd.</td>
+      <td data-order="29163646.21">$29,163,646</td>
+      <td data-order="1633867">1,633,867</td>
+      <td>$17.85</td>
+      <td>7</td>
+      <td><span class="badge-ceo">Yes (1)</span></td>
+    </tr>
+  
+    <tr>
+      <td>91</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/suja" target="_blank" rel="noopener">suja</a></strong></td>
+      <td>suja life, inc.</td>
+      <td data-order="29042163.53">$29,042,164</td>
+      <td data-order="3435537">3,435,537</td>
+      <td>$8.45</td>
+      <td>2</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>92</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/msm" target="_blank" rel="noopener">msm</a></strong></td>
+      <td>msc industrial direct co inc</td>
+      <td data-order="29034298.9015">$29,034,299</td>
+      <td data-order="250433">250,433</td>
+      <td>$115.94</td>
+      <td>2</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>93</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/uaa" target="_blank" rel="noopener">uaa</a></strong></td>
+      <td>under armour, inc.</td>
+      <td data-order="28840444.893">$28,840,445</td>
+      <td data-order="4670700">4,670,700</td>
+      <td>$6.17</td>
+      <td>1</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>94</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/yss" target="_blank" rel="noopener">yss</a></strong></td>
+      <td>yellowstone midco holdings ii, llc</td>
+      <td data-order="25734974">$25,734,974</td>
+      <td data-order="756911">756,911</td>
+      <td>$34.00</td>
+      <td>3</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>95</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/lrmr" target="_blank" rel="noopener">lrmr</a></strong></td>
+      <td>larimar therapeutics, inc.</td>
+      <td data-order="25716890">$25,716,890</td>
+      <td data-order="5160000">5,160,000</td>
+      <td>$4.98</td>
+      <td>4</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>96</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/baba" target="_blank" rel="noopener">baba</a></strong></td>
+      <td>alibaba group holding ltd</td>
+      <td data-order="25691200">$25,691,200</td>
+      <td data-order="1790000">1,790,000</td>
+      <td>$14.35</td>
+      <td>2</td>
+      <td><span class="badge-ceo">Yes (1)</span></td>
+    </tr>
+  
+    <tr>
+      <td>97</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/blsm" target="_blank" rel="noopener">blsm</a></strong></td>
+      <td>blossomhill therapeutics, inc.</td>
+      <td data-order="25181900">$25,181,900</td>
+      <td data-order="1573900">1,573,900</td>
+      <td>$16.00</td>
+      <td>6</td>
+      <td><span class="badge-ceo">Yes (1)</span></td>
+    </tr>
+  
+    <tr>
+      <td>98</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/auph" target="_blank" rel="noopener">auph</a></strong></td>
+      <td>aurinia pharmaceuticals inc.</td>
+      <td data-order="25144032.9">$25,144,033</td>
+      <td data-order="1714606">1,714,606</td>
+      <td>$14.66</td>
+      <td>1</td>
+      <td><span class="badge-ceo">Yes (5)</span></td>
+    </tr>
+  
+    <tr>
+      <td>99</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/prld" target="_blank" rel="noopener">prld</a></strong></td>
+      <td>prelude therapeutics inc</td>
+      <td data-order="24999997.2">$24,999,997</td>
+      <td data-order="5630630">5,630,630</td>
+      <td>$4.44</td>
+      <td>2</td>
+      <td>No</td>
+    </tr>
+  
+    <tr>
+      <td>100</td>
+      <td><strong><a href="https://finance.yahoo.com/quote/avln" target="_blank" rel="noopener">avln</a></strong></td>
+      <td>avalyn pharma inc.</td>
+      <td data-order="24999984">$24,999,984</td>
+      <td data-order="1388888">1,388,888</td>
+      <td>$18.00</td>
+      <td>3</td>
+      <td>No</td>
+    </tr>
+  
+  </tbody>
+</table>
+
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('#insiderTable').DataTable({
+      pageLength: 25,
+      order: [[3, 'desc']], // Default sort by Total Invested ($) descending
+      responsive: true
+    });
+  });
+</script>
