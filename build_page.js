@@ -106,6 +106,16 @@ schema_json: '${schemaData}'
 
 // 4. Main Build Runner
 async function buildAll() {
+  // 1. Today
+  await generateJekyllPage({
+    viewName: 'top_buys_daily',
+    fileName: './top-bought-today.html',
+    pageTitle: 'Top 100 Most Bought Stocks by Insiders Today',
+    metaDescription: 'Top 100 stocks with highest insider buying activity today based on SEC Form 4 filings.',
+    activeNav: 'today'
+  });
+
+  // 2. This Week
   await generateJekyllPage({
     viewName: 'top_buys_weekly',
     fileName: './top-bought-this-week.html',
@@ -114,7 +124,23 @@ async function buildAll() {
     activeNav: 'week'
   });
 
-  // You can add Daily, Monthly, and Yearly calls here once views are ready
+  // 3. This Month
+  await generateJekyllPage({
+    viewName: 'top_buys_month',
+    fileName: './top-bought-this-month.html',
+    pageTitle: 'Top 100 Most Bought Stocks by Insiders (Past 30 Days)',
+    metaDescription: 'Top 100 stocks with highest insider buying activity over the past 30 days based on SEC Form 4 filings.',
+    activeNav: 'month'
+  });
+
+  // 4. This Year
+  await generateJekyllPage({
+    viewName: 'top_buys_year',
+    fileName: './top-bought-this-year.html',
+    pageTitle: 'Top 100 Most Bought Stocks by Insiders (Past 365 Days)',
+    metaDescription: 'Top 100 stocks with highest insider buying activity over the past year based on SEC Form 4 filings.',
+    activeNav: 'year'
+  });
 }
 
 buildAll().catch((err) => {
