@@ -137,8 +137,8 @@ async function buildAll() {
   await generateJekyllPage({
     viewName: 'top_buys_year',
     fileName: './top-bought-this-year.html',
-    pageTitle: 'Top 100 Most Bought Stocks by Insiders (Past 365 Days)',
-    metaDescription: 'Top 100 stocks with highest insider buying activity over the past year based on SEC Form 4 filings.',
+    pageTitle: 'Top 100 Most Bought Stocks by Insiders in 2026 (YTD)',
+    metaDescription: 'Discover the top 100 stocks with the highest cumulative insider buying activity year-to-Date (YTD) in 2026 based on SEC Form 4 filings.',
     activeNav: 'year'
   });
 }
