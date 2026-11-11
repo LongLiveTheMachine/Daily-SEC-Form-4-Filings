@@ -45,6 +45,48 @@
   .nav-cta { background: var(--gold); color: var(--black); font-weight: 700; font-size: 0.82rem; letter-spacing: 0.04em; padding: 0.6rem 1.3rem; border: none; cursor: pointer; text-decoration: none; transition: background 0.2s; flex-shrink: 0; text-transform: uppercase; }
   .nav-cta:hover { background: var(--gold-light); }
 
+  /* Base Navbar Flex alignment */
+  /* Dropdown Container */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  /* Dropdown Content Links (Hidden by default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    padding: 8px 0;
+    z-index: 1000;
+    top: 100%;
+    left: 0;
+    border: 1px solid #eaeaea;
+  }
+
+  /* Style individual items inside the dropdown */
+  .dropdown-content a {
+    color: #333;
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  /* Hover effect for dropdown items */
+  .dropdown-content a:hover {
+    background-color: #f8f9fa;
+    color: #0052cc;
+  }
+
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
   /* HERO */
   .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 10rem 4rem 6rem; position: relative; overflow: hidden; background: var(--black); }
   .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(201,168,76,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.05) 1px, transparent 1px); background-size: 60px 60px; }
@@ -268,6 +310,7 @@
     footer { flex-direction: column; text-align: center; }
     .signup-popup { left: 1rem; bottom: 1rem; max-width: calc(100vw - 2rem); }
   }
+  
 </style>
 </head>
 <body>
