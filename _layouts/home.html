@@ -344,26 +344,33 @@
 </div>
 
 <!-- NAV -->
-<nav>
+<nav class="greedy-nav">
   <a href="#" class="nav-logo">InsiderIQ<span>Pro</span></a>
-  <div class="nav-links">
-    <a href="#how">How It Works</a>
-
+  
+  <!-- Desktop & Mobile Links Container -->
+  <ul class="visible-links">
+    <li><a href="#how">How It Works</a></li>
     <!-- Top Buys Dropdown -->
-    <div class="dropdown">
+    <li class="dropdown">
       <a href="#" class="dropbtn">Top Buys ▾</a>
-      <div class="dropdown-content">
-        <a href="./top-bought-today.html">Today</a>
-        <a href="./top-bought-this-week.html">This Week</a>
-        <a href="./top-bought-this-month.html">This Month</a>
-        <a href="./top-bought-this-year.html">This Year (YTD)</a>
-      </div>
-    </div>
-    
-    <a href="#offerings">Pricing</a>
-    <a href="/blog/">Blog</a>
-    <a href="mailto:insideriqpro@gmail.com">Contact</a>
-  </div>
+      <ul class="dropdown-content">
+        <li><a href="./top-bought-today.html">Today</a></li>
+        <li><a href="./top-bought-this-week.html">This Week</a></li>
+        <li><a href="./top-bought-this-month.html">This Month</a></li>
+        <li><a href="./top-bought-this-year.html">This Year (YTD)</a></li>
+      </ul>
+    </li>
+    <li><a href="#offerings">Pricing</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="mailto:insideriqpro@gmail.com">Contact</a></li>
+  </ul>
+
+  <!-- The Missing Mobile Hamburger Toggle Button -->
+  <button class="greedy-nav__toggle hidden" type="button">
+    <span class="visually-hidden">Toggle Menu</span>
+    <div class="nav-icon"></div>
+  </button>
+
   <a href="#signup" class="nav-cta">Start Free Trial</a>
 </nav>
 
@@ -834,7 +841,9 @@ data-goatcounter="https://insideriqpro.goatcounter.com/count"
         async src="//gc.zgo.at/count.js">
 </script>
 
+<script src="{{ '/assets/js/main.min.js' | relative_url }}"></script>
 
+  
 {% include scripts.html %}
   
 </body>
