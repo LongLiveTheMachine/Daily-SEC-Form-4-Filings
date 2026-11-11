@@ -5,6 +5,7 @@ remote_theme: mmistakes/minimal-mistakes
 plugins:
   - jekyll-remote-theme
   - jekyll-sitemap
+  - jekyll-include-cached
 
 url: https://www.insideriqpro.com
 baseurl: ""
