@@ -310,6 +310,15 @@
     footer { flex-direction: column; text-align: center; }
     .signup-popup { left: 1rem; bottom: 1rem; max-width: calc(100vw - 2rem); }
   }
+
+  @include breakpoint($max-width: 768px) {
+  .greedy-nav .visible-links {
+    display: none !important;
+  }
+  .greedy-nav .greedy-nav__toggle {
+    display: flex !important;
+  }
+}
   
 </style>
 </head>
