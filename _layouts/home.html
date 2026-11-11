@@ -319,6 +319,19 @@
     display: flex !important;
   }
 }
+
+
+@import "minimal-mistakes";
+
+/* Force mobile hamburger menu to show on small screens */
+@media screen and (max-width: 768px) {
+  .greedy-nav .visible-links {
+    display: none !important;
+  }
+  .greedy-nav .greedy-nav__toggle {
+    display: flex !important;
+  }
+}
   
 </style>
 </head>
