@@ -1,0 +1,28 @@
+# _data/navigation.yml
+main:
+  - title: "How It Works"
+    url: "#how"
+
+  - title: "Top Buys"
+    url: "#"
+    children:
+      - title: "Today"
+        url: "/top-bought-today.html"
+      - title: "This Week"
+        url: "/top-bought-this-week.html"
+      - title: "This Month"
+        url: "/top-bought-this-month.html"
+      - title: "This Year (YTD)"
+        url: "/top-bought-this-year.html"
+
+  - title: "Pricing"
+    url: "#offerings"
+
+  - title: "Blog"
+    url: "/blog/"
+
+  - title: "Contact"
+    url: "mailto:insideriqpro@gmail.com"
+
+  - title: "Start Free Trial"
+    url: "#signup"
