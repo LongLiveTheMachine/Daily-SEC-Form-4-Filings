@@ -1,0 +1,13 @@
+{% if site.provider == "custom" %}
+  {% include scripts/custom.html %}
+{% endif %}
+<script src="{{ '/assets/js/main.min.js' | relative_url }}"></script>
+{% if site.search == true or site.search_provider == swiftype or site.search_provider == algolia %}
+  {% json_to_csv %}
+  <script src="{{ '/assets/js/lunr/lunr.min.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/lunr/lunr-store.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/lunr/lunr-en.js' | relative_url }}"></script>
+{% endif %}
+{% if page.comments %}
+  {% include comments_providers.html %}
+{% endif %}
