@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Link directly to your XML Sitemap (Replace with your actual domain)
-Sitemap: https://yourdomain.com/sitemap.xml
+Sitemap: https://insideriqpro.com/sitemap.xml
