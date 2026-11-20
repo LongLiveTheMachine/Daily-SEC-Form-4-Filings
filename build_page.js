@@ -36,7 +36,7 @@ async function generateJekyllPage({ viewName, fileName, pageTitle, metaDescripti
     "@type": "Dataset",
     "name": pageTitle,
     "description": metaDescription,
-    "url": `https://yourdomain.com/${cleanFileName}`,
+    "url": `https://insideriqpro.com/${cleanFileName}`,
     "keywords": ["insider trading", "SEC Form 4", "insider buying", "stock market", "C-suite trades"],
     "variableMeasured": "Total Invested Value, Shares Bought, Weighted Average Price"
   });
